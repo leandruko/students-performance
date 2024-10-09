@@ -1,0 +1,28 @@
+---
+title: "Análisis y Predicción de Demanda de Productos"
+author: "Leandro"
+date: "2024-10-07"
+format: 
+  html: 
+    toc: true  # Genera una tabla de contenidos automática.
+    code-fold: true  # Permite ocultar/mostrar el código en el HTML.
+---
+
+## 1. Introducción
+
+En este proyecto, analizaremos un conjunto de datos de ventas para predecir la demanda de productos utilizando modelos de machine learning. 
+
+## 2. Importación de Librerías y Carga de Datos
+
+```{python}
+# Importación de librerías
+import pandas as pd
+import matplotlib.pyplot as plt
+import numpy as np
+import seaborn as sns
+from sklearn.preprocessing import LabelEncoder
+import warnings
+import joblib
+
+# Carga de datos
+data = pd.read_csv('data.csv', sep=",")
