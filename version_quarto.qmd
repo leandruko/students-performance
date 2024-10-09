@@ -8,11 +8,11 @@ format:
     code-fold: true  # Permite ocultar/mostrar el código en el HTML.
 ---
 
-## 1. Introducción
+## 1. Definir problema
 
 En este proyecto, analizaremos un conjunto de datos de ventas para predecir la demanda de productos utilizando modelos de machine learning. 
 
-## 2. Importación de Librerías y Carga de Datos
+## 2. Recopilación de datos
 
 ```{python}
 # Importación de librerías
@@ -21,8 +21,33 @@ import matplotlib.pyplot as plt
 import numpy as np
 import seaborn as sns
 from sklearn.preprocessing import LabelEncoder
-import warnings
-import joblib
 
 # Carga de datos
-data = pd.read_csv('data.csv', sep=",")
+df = pd.read_csv('data.csv', sep=",")
+
+# Resumen estadístico
+# Mostrar las primeras filas del dataset
+print("Primeras filas del dataset:")
+print(df.head())
+
+# Mostrar información general del dataset
+print("\nInformación del dataset:")
+print(df.info())
+
+# Descripción estadística básica del dataset
+print("\nDescripción estadística:")
+print(df.describe())
+
+# Verificar si hay valores nulos en el dataset
+print("\nValores nulos por columna:")
+print(df.isnull().sum())
+
+df.describe()
+
+info = df.shape
+print("\nLa cantidad de filas y columnas en nuestro dataframe es de:",info)
+
+tipos = df.dtypes
+print("\nTipos de datos presentes en el dataset:\n",tipos)
+
+
