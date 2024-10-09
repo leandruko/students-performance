@@ -49,5 +49,32 @@ print("\nLa cantidad de filas y columnas en nuestro dataframe es de:",info)
 
 tipos = df.dtypes
 print("\nTipos de datos presentes en el dataset:\n",tipos)
+```
+
+## 3. Análisis de datos por variable
+```{python}
+
+# Descripción estadística básica de la variable 'Hours_Studied'
+Hours_Studied_mean = np.mean(df['Hours_Studied'])
+Hours_Studied_median = np.median(df['Hours_Studied'])
+Hours_Studied_std = np.std(df['Hours_Studied'])
+Hours_Studied_min = np.min(df['Hours_Studied'])
+Hours_Studied_max = np.max(df['Hours_Studied'])
+
+print("Análisis de la Variable 'Hours_Studied'")
+print(f"Media: {Hours_Studied_mean:.2f}")
+print(f"Mediana: {Hours_Studied_median:.2f}")
+print(f"Desviación Estándar: {Hours_Studied_std:.2f}")
+print(f"Valor Mínimo: {Hours_Studied_min:.2f}")
+print(f"Valor Máximo: {Hours_Studied_max:.2f}")
+
+# Histograma
+plt.figure(figsize=(10, 6))
+sns.histplot(df['Hours_Studied'], bins=30, kde=True, color='#4C72B0')
+plt.title('Distribución de Hours_Studied')
+plt.xlabel('Hours_Studied')
+plt.ylabel('Frecuencia')
+plt.show()
 
 
+```
