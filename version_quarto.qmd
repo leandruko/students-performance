@@ -246,7 +246,7 @@ plt.ylabel('Frecuencia')
 plt.show()
 ```
 
-## Análisis de datos categoricos
+## Análisis de datos cualitativos
 ### Análisis de Parental_Involvement
 ```{python}
 values_Parental_Involvement = df['Parental_Involvement'].value_counts()
@@ -283,7 +283,25 @@ plt.xticks(rotation=45)
 plt.show()
 ```
 
-### Análisis de Access_to_Resources
+### Análisis de Extracurricular_Activities
+```{python}
+values_Access_to_Resources = df['Extracurricular_Activities'].value_counts()
+moda_Access_to_Resources = values_Access_to_Resources.idxmax()
+
+print("Análisis Univariado de la Variable 'Zona' (Top 20)")
+print(f"Frecuencia de las 10 categorías más frecuentes:\n{values_Access_to_Resources}")
+print(f"Moda (Categoría más frecuente): {moda_Access_to_Resources}")
+
+plt.figure(figsize=(10, 6))
+sns.countplot(x='Extracurricular_Activities', data=df[df['Extracurricular_Activities'].isin(values_Access_to_Resources.index)], order=values_Access_to_Resources.index, palette='Set2')
+plt.title('Distribución de Extracurricular_Activities')
+plt.xlabel('Extracurricular_Activities')
+plt.ylabel('Frecuencia')
+plt.xticks(rotation=45)
+plt.show()
+```
+
+### Análisis de Motivation_Level
 ```{python}
 values_Access_to_Resources = df['Access_to_Resources'].value_counts()
 moda_Access_to_Resources = values_Access_to_Resources.idxmax()
@@ -301,7 +319,7 @@ plt.xticks(rotation=45)
 plt.show()
 ```
 
-### Análisis de Access_to_Resources
+### Análisis de Internet_Access
 ```{python}
 values_Access_to_Resources = df['Access_to_Resources'].value_counts()
 moda_Access_to_Resources = values_Access_to_Resources.idxmax()
@@ -318,7 +336,8 @@ plt.ylabel('Frecuencia')
 plt.xticks(rotation=45)
 plt.show()
 ```
-### Análisis de Access_to_Resources
+
+### Análisis de Family_Income
 ```{python}
 values_Access_to_Resources = df['Access_to_Resources'].value_counts()
 moda_Access_to_Resources = values_Access_to_Resources.idxmax()
@@ -335,7 +354,8 @@ plt.ylabel('Frecuencia')
 plt.xticks(rotation=45)
 plt.show()
 ```
-### Análisis de Access_to_Resources
+
+### Análisis de Teacher_Quality
 ```{python}
 values_Access_to_Resources = df['Access_to_Resources'].value_counts()
 moda_Access_to_Resources = values_Access_to_Resources.idxmax()
@@ -352,7 +372,8 @@ plt.ylabel('Frecuencia')
 plt.xticks(rotation=45)
 plt.show()
 ```
-### Análisis de Access_to_Resources
+
+### Análisis de School_Type
 ```{python}
 values_Access_to_Resources = df['Access_to_Resources'].value_counts()
 moda_Access_to_Resources = values_Access_to_Resources.idxmax()
@@ -369,7 +390,8 @@ plt.ylabel('Frecuencia')
 plt.xticks(rotation=45)
 plt.show()
 ```
-### Análisis de Access_to_Resources
+
+### Análisis de Peer_Influence
 ```{python}
 values_Access_to_Resources = df['Access_to_Resources'].value_counts()
 moda_Access_to_Resources = values_Access_to_Resources.idxmax()
@@ -386,7 +408,8 @@ plt.ylabel('Frecuencia')
 plt.xticks(rotation=45)
 plt.show()
 ```
-### Análisis de Access_to_Resources
+
+### Análisis de Learning_Disabilities
 ```{python}
 values_Access_to_Resources = df['Access_to_Resources'].value_counts()
 moda_Access_to_Resources = values_Access_to_Resources.idxmax()
@@ -403,7 +426,8 @@ plt.ylabel('Frecuencia')
 plt.xticks(rotation=45)
 plt.show()
 ```
-### Análisis de Access_to_Resources
+
+### Análisis de Parental_Education_Level
 ```{python}
 values_Access_to_Resources = df['Access_to_Resources'].value_counts()
 moda_Access_to_Resources = values_Access_to_Resources.idxmax()
@@ -420,7 +444,8 @@ plt.ylabel('Frecuencia')
 plt.xticks(rotation=45)
 plt.show()
 ```
-### Análisis de Access_to_Resources
+
+### Análisis de Distance_from_Home
 ```{python}
 values_Access_to_Resources = df['Access_to_Resources'].value_counts()
 moda_Access_to_Resources = values_Access_to_Resources.idxmax()
@@ -437,75 +462,8 @@ plt.ylabel('Frecuencia')
 plt.xticks(rotation=45)
 plt.show()
 ```
-### Análisis de Access_to_Resources
-```{python}
-values_Access_to_Resources = df['Access_to_Resources'].value_counts()
-moda_Access_to_Resources = values_Access_to_Resources.idxmax()
 
-print("Análisis Univariado de la Variable 'Zona' (Top 20)")
-print(f"Frecuencia de las 10 categorías más frecuentes:\n{values_Access_to_Resources}")
-print(f"Moda (Categoría más frecuente): {moda_Access_to_Resources}")
-
-plt.figure(figsize=(10, 6))
-sns.countplot(x='Access_to_Resources', data=df[df['Access_to_Resources'].isin(values_Access_to_Resources.index)], order=values_Access_to_Resources.index, palette='Set2')
-plt.title('Distribución de Access_to_Resources')
-plt.xlabel('Access_to_Resources')
-plt.ylabel('Frecuencia')
-plt.xticks(rotation=45)
-plt.show()
-```
-### Análisis de Access_to_Resources
-```{python}
-values_Access_to_Resources = df['Access_to_Resources'].value_counts()
-moda_Access_to_Resources = values_Access_to_Resources.idxmax()
-
-print("Análisis Univariado de la Variable 'Zona' (Top 20)")
-print(f"Frecuencia de las 10 categorías más frecuentes:\n{values_Access_to_Resources}")
-print(f"Moda (Categoría más frecuente): {moda_Access_to_Resources}")
-
-plt.figure(figsize=(10, 6))
-sns.countplot(x='Access_to_Resources', data=df[df['Access_to_Resources'].isin(values_Access_to_Resources.index)], order=values_Access_to_Resources.index, palette='Set2')
-plt.title('Distribución de Access_to_Resources')
-plt.xlabel('Access_to_Resources')
-plt.ylabel('Frecuencia')
-plt.xticks(rotation=45)
-plt.show()
-```
-### Análisis de Access_to_Resources
-```{python}
-values_Access_to_Resources = df['Access_to_Resources'].value_counts()
-moda_Access_to_Resources = values_Access_to_Resources.idxmax()
-
-print("Análisis Univariado de la Variable 'Zona' (Top 20)")
-print(f"Frecuencia de las 10 categorías más frecuentes:\n{values_Access_to_Resources}")
-print(f"Moda (Categoría más frecuente): {moda_Access_to_Resources}")
-
-plt.figure(figsize=(10, 6))
-sns.countplot(x='Access_to_Resources', data=df[df['Access_to_Resources'].isin(values_Access_to_Resources.index)], order=values_Access_to_Resources.index, palette='Set2')
-plt.title('Distribución de Access_to_Resources')
-plt.xlabel('Access_to_Resources')
-plt.ylabel('Frecuencia')
-plt.xticks(rotation=45)
-plt.show()
-```
-### Análisis de Access_to_Resources
-```{python}
-values_Access_to_Resources = df['Access_to_Resources'].value_counts()
-moda_Access_to_Resources = values_Access_to_Resources.idxmax()
-
-print("Análisis Univariado de la Variable 'Zona' (Top 20)")
-print(f"Frecuencia de las 10 categorías más frecuentes:\n{values_Access_to_Resources}")
-print(f"Moda (Categoría más frecuente): {moda_Access_to_Resources}")
-
-plt.figure(figsize=(10, 6))
-sns.countplot(x='Access_to_Resources', data=df[df['Access_to_Resources'].isin(values_Access_to_Resources.index)], order=values_Access_to_Resources.index, palette='Set2')
-plt.title('Distribución de Access_to_Resources')
-plt.xlabel('Access_to_Resources')
-plt.ylabel('Frecuencia')
-plt.xticks(rotation=45)
-plt.show()
-```
-### Análisis de Access_to_Resources
+### Análisis de Gender
 ```{python}
 values_Access_to_Resources = df['Access_to_Resources'].value_counts()
 moda_Access_to_Resources = values_Access_to_Resources.idxmax()
