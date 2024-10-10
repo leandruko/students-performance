@@ -1,11 +1,11 @@
 ---
-title: "Análisis y Predicción de Demanda de Productos"
-author: "Leandro"
+title: "Proyecto rendimiento de estudiantes"
+author: "Leandro Soto Miranda"
 date: "2024-10-07"
 format: 
   html: 
-    toc: true  # Genera una tabla de contenidos automática.
-    code-fold: true  # Permite ocultar/mostrar el código en el HTML.
+    toc: true 
+    code-fold: true
 ---
 
 ## 1. Definir problema
@@ -52,6 +52,7 @@ print("\nTipos de datos presentes en el dataset:\n",tipos)
 ```
 
 ## 3. Análisis de datos por variable
+### Análisis de Hours_Studied
 ```{python}
 
 # Descripción estadística básica de la variable 'Hours_Studied'
@@ -78,3 +79,173 @@ plt.show()
 
 
 ```
+
+### Análisis de Attendance
+```{python}
+
+# Descripción estadística básica de la variable 'Attendance'
+Attendance_mean = np.mean(df['Attendance'])
+Attendance_median = np.median(df['Attendance'])
+Attendance_std = np.std(df['Attendance'])
+Attendance_min = np.min(df['Attendance'])
+Attendance_max = np.max(df['Attendance'])
+
+print("Análisis de la Variable 'Age'")
+print(f"Media: {Attendance_mean:.2f}")
+print(f"Mediana: {Attendance_median:.2f}")
+print(f"Desviación Estándar: {Attendance_std:.2f}")
+print(f"Valor Mínimo: {Attendance_min:.2f}")
+print(f"Valor Máximo: {Attendance_max:.2f}")
+
+# Histograma
+plt.figure(figsize=(10, 6))
+sns.histplot(df['Attendance'], bins=30, kde=True, color='#4C72B0')
+plt.title('Distribución de Attendance')
+plt.xlabel('Attendance')
+plt.ylabel('Frecuencia')
+plt.show()
+
+
+```
+
+### Análisis de Hours_Studied
+```{python}
+
+# Descripción estadística básica de la variable 'Sleep_Hours'
+Sleep_Hours_mean = np.mean(df['Sleep_Hours'])
+Sleep_Hours_median = np.median(df['Sleep_Hours'])
+Sleep_Hours_std = np.std(df['Sleep_Hours'])
+Sleep_Hours_min = np.min(df['Sleep_Hours'])
+Sleep_Hours_max = np.max(df['Sleep_Hours'])
+
+print("Análisis de la Variable 'Sleep_Hours'")
+print(f"Media: {Sleep_Hours_mean:.2f}")
+print(f"Mediana: {Sleep_Hours_median:.2f}")
+print(f"Desviación Estándar: {Sleep_Hours_std:.2f}")
+print(f"Valor Mínimo: {Sleep_Hours_min:.2f}")
+print(f"Valor Máximo: {Sleep_Hours_max:.2f}")
+
+# Histograma
+plt.figure(figsize=(10, 6))
+sns.histplot(df['Sleep_Hours'], bins=30, kde=True, color='#4C72B0')
+plt.title('Distribución de Sleep_Hours')
+plt.xlabel('Sleep_Hours')
+plt.ylabel('Frecuencia')
+plt.show()
+
+
+```
+
+### Análisis de Previous_Scores
+```{python}
+
+# Descripción estadística básica de la variable 'Previous_Scores'
+Previous_Scores_mean = np.mean(df['Previous_Scores'])
+Previous_Scores_median = np.median(df['Previous_Scores'])
+Previous_Scores_std = np.std(df['Previous_Scores'])
+Previous_Scores_min = np.min(df['Previous_Scores'])
+Previous_Scores_max = np.max(df['Previous_Scores'])
+
+print("Análisis de la Variable 'Previous_Scores'")
+print(f"Media: {Previous_Scores_mean:.2f}")
+print(f"Mediana: {Previous_Scores_median:.2f}")
+print(f"Desviación Estándar: {Previous_Scores_std:.2f}")
+print(f"Valor Mínimo: {Previous_Scores_min:.2f}")
+print(f"Valor Máximo: {Previous_Scores_max:.2f}")
+
+# Histograma
+plt.figure(figsize=(10, 6))
+sns.histplot(df['Previous_Scores'], bins=30, kde=True, color='#4C72B0')
+plt.title('Distribución de Previous_Scores')
+plt.xlabel('Previous_Scores')
+plt.ylabel('Frecuencia')
+plt.show()
+
+```
+
+### Análisis de Hours_Studied
+```{python}
+
+# Descripción estadística básica de la variable 'Hours_Studied'
+Hours_Studied_mean = np.mean(df['Hours_Studied'])
+Hours_Studied_median = np.median(df['Hours_Studied'])
+Hours_Studied_std = np.std(df['Hours_Studied'])
+Hours_Studied_min = np.min(df['Hours_Studied'])
+Hours_Studied_max = np.max(df['Hours_Studied'])
+
+print("Análisis de la Variable 'Hours_Studied'")
+print(f"Media: {Hours_Studied_mean:.2f}")
+print(f"Mediana: {Hours_Studied_median:.2f}")
+print(f"Desviación Estándar: {Hours_Studied_std:.2f}")
+print(f"Valor Mínimo: {Hours_Studied_min:.2f}")
+print(f"Valor Máximo: {Hours_Studied_max:.2f}")
+
+# Histograma
+plt.figure(figsize=(10, 6))
+sns.histplot(df['Hours_Studied'], bins=30, kde=True, color='#4C72B0')
+plt.title('Distribución de Hours_Studied')
+plt.xlabel('Hours_Studied')
+plt.ylabel('Frecuencia')
+plt.show()
+
+
+```
+
+### Análisis de Hours_Studied
+```{python}
+
+# Descripción estadística básica de la variable 'Hours_Studied'
+Hours_Studied_mean = np.mean(df['Hours_Studied'])
+Hours_Studied_median = np.median(df['Hours_Studied'])
+Hours_Studied_std = np.std(df['Hours_Studied'])
+Hours_Studied_min = np.min(df['Hours_Studied'])
+Hours_Studied_max = np.max(df['Hours_Studied'])
+
+print("Análisis de la Variable 'Hours_Studied'")
+print(f"Media: {Hours_Studied_mean:.2f}")
+print(f"Mediana: {Hours_Studied_median:.2f}")
+print(f"Desviación Estándar: {Hours_Studied_std:.2f}")
+print(f"Valor Mínimo: {Hours_Studied_min:.2f}")
+print(f"Valor Máximo: {Hours_Studied_max:.2f}")
+
+# Histograma
+plt.figure(figsize=(10, 6))
+sns.histplot(df['Hours_Studied'], bins=30, kde=True, color='#4C72B0')
+plt.title('Distribución de Hours_Studied')
+plt.xlabel('Hours_Studied')
+plt.ylabel('Frecuencia')
+plt.show()
+
+
+```
+
+### Análisis de Hours_Studied
+```{python}
+
+# Descripción estadística básica de la variable 'Hours_Studied'
+Hours_Studied_mean = np.mean(df['Hours_Studied'])
+Hours_Studied_median = np.median(df['Hours_Studied'])
+Hours_Studied_std = np.std(df['Hours_Studied'])
+Hours_Studied_min = np.min(df['Hours_Studied'])
+Hours_Studied_max = np.max(df['Hours_Studied'])
+
+print("Análisis de la Variable 'Hours_Studied'")
+print(f"Media: {Hours_Studied_mean:.2f}")
+print(f"Mediana: {Hours_Studied_median:.2f}")
+print(f"Desviación Estándar: {Hours_Studied_std:.2f}")
+print(f"Valor Mínimo: {Hours_Studied_min:.2f}")
+print(f"Valor Máximo: {Hours_Studied_max:.2f}")
+
+# Histograma
+plt.figure(figsize=(10, 6))
+sns.histplot(df['Hours_Studied'], bins=30, kde=True, color='#4C72B0')
+plt.title('Distribución de Hours_Studied')
+plt.xlabel('Hours_Studied')
+plt.ylabel('Frecuencia')
+plt.show()
+
+
+```
+
+### Análisis de Hours_Studied
+### Análisis de Hours_Studied
