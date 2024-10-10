@@ -243,9 +243,5 @@ plt.title('Distribución de Exam_Score')
 plt.xlabel('Exam_Score')
 plt.ylabel('Frecuencia')
 plt.show()
-
-
 ```
 
-### Análisis de Hours_Studied
-### Análisis de Hours_Studied
