@@ -10,7 +10,7 @@ format:
 
 ## 1. Definir problema
 
-En este proyecto, analizaremos un conjunto de datos de ventas para predecir la demanda de productos utilizando modelos de machine learning. 
+En este proyecto, analizaremos un conjunto de datos de rendiemiento de estudiantes
 
 ## 2. Recopilación de datos
 
