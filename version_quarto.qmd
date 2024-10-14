@@ -21,6 +21,9 @@ import matplotlib.pyplot as plt
 import numpy as np
 import seaborn as sns
 from sklearn.preprocessing import LabelEncoder
+import warnings
+warnings.filterwarnings('ignore', category=FutureWarning)
+
 
 # Carga de datos
 df = pd.read_csv('data.csv', sep=",")
@@ -53,430 +56,77 @@ print("\nTipos de datos presentes en el dataset:\n",tipos)
 
 ## 3. Análisis de datos por **Variable**
 ## Análisis de datos cuantitativos
-### Análisis de Hours_Studied
+
 ```{python}
+import numpy as np
+import matplotlib.pyplot as plt
+import seaborn as sns
 
-# Descripción estadística básica de la variable 'Hours_Studied'
-Hours_Studied_mean = np.mean(df['Hours_Studied'])
-Hours_Studied_median = np.median(df['Hours_Studied'])
-Hours_Studied_std = np.std(df['Hours_Studied'])
-Hours_Studied_min = np.min(df['Hours_Studied'])
-Hours_Studied_max = np.max(df['Hours_Studied'])
+# Función para el análisis univariado de variables cuantitativas
+def analizar_variable_cuantitativa(df, columna):
+    mean = np.mean(df[columna])
+    median = np.median(df[columna])
+    std = np.std(df[columna])
+    min_value = np.min(df[columna])
+    max_value = np.max(df[columna])
 
-print("Análisis de la Variable 'Hours_Studied'")
-print(f"Media: {Hours_Studied_mean:.2f}")
-print(f"Mediana: {Hours_Studied_median:.2f}")
-print(f"Desviación Estándar: {Hours_Studied_std:.2f}")
-print(f"Valor Mínimo: {Hours_Studied_min:.2f}")
-print(f"Valor Máximo: {Hours_Studied_max:.2f}")
+    print(f"Análisis de la Variable '{columna}'")
+    print(f"Media: {mean:.2f}")
+    print(f"Mediana: {median:.2f}")
+    print(f"Desviación Estándar: {std:.2f}")
+    print(f"Valor Mínimo: {min_value:.2f}")
+    print(f"Valor Máximo: {max_value:.2f}")
+    print("\n")
 
-# Histograma
-plt.figure(figsize=(10, 6))
-sns.histplot(df['Hours_Studied'], bins=30, kde=True, color='#4C72B0')
-plt.title('Distribución de Hours_Studied')
-plt.xlabel('Hours_Studied')
-plt.ylabel('Frecuencia')
-plt.show()
+    # Visualización de la distribución (Histograma con KDE)
+    plt.figure(figsize=(10, 6))
+    sns.histplot(df[columna], bins=30, kde=True, color='#4C72B0')
+    plt.title(f'Distribución de {columna}')
+    plt.xlabel(columna)
+    plt.ylabel('Frecuencia')
+    plt.show()
 
-
-```
-
-### Análisis de Attendance
-```{python}
-
-# Descripción estadística básica de la variable 'Attendance'
-Attendance_mean = np.mean(df['Attendance'])
-Attendance_median = np.median(df['Attendance'])
-Attendance_std = np.std(df['Attendance'])
-Attendance_min = np.min(df['Attendance'])
-Attendance_max = np.max(df['Attendance'])
-
-print("Análisis de la Variable 'Age'")
-print(f"Media: {Attendance_mean:.2f}")
-print(f"Mediana: {Attendance_median:.2f}")
-print(f"Desviación Estándar: {Attendance_std:.2f}")
-print(f"Valor Mínimo: {Attendance_min:.2f}")
-print(f"Valor Máximo: {Attendance_max:.2f}")
-
-# Histograma
-plt.figure(figsize=(10, 6))
-sns.histplot(df['Attendance'], bins=30, kde=True, color='#4C72B0')
-plt.title('Distribución de Attendance')
-plt.xlabel('Attendance')
-plt.ylabel('Frecuencia')
-plt.show()
-
-
-```
-
-### Análisis de Sleep_Hours
-```{python}
-
-# Descripción estadística básica de la variable 'Sleep_Hours'
-Sleep_Hours_mean = np.mean(df['Sleep_Hours'])
-Sleep_Hours_median = np.median(df['Sleep_Hours'])
-Sleep_Hours_std = np.std(df['Sleep_Hours'])
-Sleep_Hours_min = np.min(df['Sleep_Hours'])
-Sleep_Hours_max = np.max(df['Sleep_Hours'])
-
-print("Análisis de la Variable 'Sleep_Hours'")
-print(f"Media: {Sleep_Hours_mean:.2f}")
-print(f"Mediana: {Sleep_Hours_median:.2f}")
-print(f"Desviación Estándar: {Sleep_Hours_std:.2f}")
-print(f"Valor Mínimo: {Sleep_Hours_min:.2f}")
-print(f"Valor Máximo: {Sleep_Hours_max:.2f}")
-
-# Histograma
-plt.figure(figsize=(10, 6))
-sns.histplot(df['Sleep_Hours'], bins=30, kde=True, color='#4C72B0')
-plt.title('Distribución de Sleep_Hours')
-plt.xlabel('Sleep_Hours')
-plt.ylabel('Frecuencia')
-plt.show()
-
-
-```
-
-### Análisis de Previous_Scores
-```{python}
-
-# Descripción estadística básica de la variable 'Previous_Scores'
-Previous_Scores_mean = np.mean(df['Previous_Scores'])
-Previous_Scores_median = np.median(df['Previous_Scores'])
-Previous_Scores_std = np.std(df['Previous_Scores'])
-Previous_Scores_min = np.min(df['Previous_Scores'])
-Previous_Scores_max = np.max(df['Previous_Scores'])
-
-print("Análisis de la Variable 'Previous_Scores'")
-print(f"Media: {Previous_Scores_mean:.2f}")
-print(f"Mediana: {Previous_Scores_median:.2f}")
-print(f"Desviación Estándar: {Previous_Scores_std:.2f}")
-print(f"Valor Mínimo: {Previous_Scores_min:.2f}")
-print(f"Valor Máximo: {Previous_Scores_max:.2f}")
-
-# Histograma
-plt.figure(figsize=(10, 6))
-sns.histplot(df['Previous_Scores'], bins=30, kde=True, color='#4C72B0')
-plt.title('Distribución de Previous_Scores')
-plt.xlabel('Previous_Scores')
-plt.ylabel('Frecuencia')
-plt.show()
-
-```
-
-### Análisis de Tutoring_Sessions
-```{python}
-
-# Descripción estadística básica de la variable 'Tutoring_Sessions'
-Tutoring_Sessions_mean = np.mean(df['Tutoring_Sessions'])
-Tutoring_Sessions_median = np.median(df['Tutoring_Sessions'])
-Tutoring_Sessions_std = np.std(df['Tutoring_Sessions'])
-Tutoring_Sessions_min = np.min(df['Tutoring_Sessions'])
-Tutoring_Sessions_max = np.max(df['Tutoring_Sessions'])
-
-print("Análisis de la Variable 'Tutoring_Sessions'")
-print(f"Media: {Tutoring_Sessions_mean:.2f}")
-print(f"Mediana: {Tutoring_Sessions_median:.2f}")
-print(f"Desviación Estándar: {Tutoring_Sessions_std:.2f}")
-print(f"Valor Mínimo: {Tutoring_Sessions_min:.2f}")
-print(f"Valor Máximo: {Tutoring_Sessions_max:.2f}")
-
-# Histograma
-plt.figure(figsize=(10, 6))
-sns.histplot(df['Tutoring_Sessions'], bins=30, kde=True, color='#4C72B0')
-plt.title('Distribución de Tutoring_Sessions')
-plt.xlabel('Tutoring_Sessions')
-plt.ylabel('Frecuencia')
-plt.show()
-
-
-```
-
-### Análisis de Physical_Activity
-```{python}
-
-# Descripción estadística básica de la variable 'Physical_Activity'
-Physical_Activity_mean = np.mean(df['Physical_Activity'])
-Physical_Activity_median = np.median(df['Physical_Activity'])
-Physical_Activity_std = np.std(df['Physical_Activity'])
-Physical_Activity_min = np.min(df['Physical_Activity'])
-Physical_Activity_max = np.max(df['Physical_Activity'])
-
-print("Análisis de la Variable 'Physical_Activity'")
-print(f"Media: {Physical_Activity_mean:.2f}")
-print(f"Mediana: {Physical_Activity_median:.2f}")
-print(f"Desviación Estándar: {Physical_Activity_std:.2f}")
-print(f"Valor Mínimo: {Physical_Activity_min:.2f}")
-print(f"Valor Máximo: {Physical_Activity_max:.2f}")
-
-# Histograma
-plt.figure(figsize=(10, 6))
-sns.histplot(df['Physical_Activity'], bins=30, kde=True, color='#4C72B0')
-plt.title('Distribución de Physical_Activity')
-plt.xlabel('Physical_Activity')
-plt.ylabel('Frecuencia')
-plt.show()
-
-
-```
-
-### Análisis de Exam_Score
-```{python}
-
-# Descripción estadística básica de la variable 'Exam_Score'
-Exam_Score_mean = np.mean(df['Exam_Score'])
-Exam_Score_median = np.median(df['Exam_Score'])
-Exam_Score_std = np.std(df['Exam_Score'])
-Exam_Score_min = np.min(df['Exam_Score'])
-Exam_Score_max = np.max(df['Exam_Score'])
-
-print("Análisis de la Variable 'Exam_Score'")
-print(f"Media: {Exam_Score_mean:.2f}")
-print(f"Mediana: {Exam_Score_median:.2f}")
-print(f"Desviación Estándar: {Exam_Score_std:.2f}")
-print(f"Valor Mínimo: {Exam_Score_min:.2f}")
-print(f"Valor Máximo: {Exam_Score_max:.2f}")
-
-# Histograma
-plt.figure(figsize=(10, 6))
-sns.histplot(df['Exam_Score'], bins=30, kde=True, color='#4C72B0')
-plt.title('Distribución de Exam_Score')
-plt.xlabel('Exam_Score')
-plt.ylabel('Frecuencia')
-plt.show()
+# Aplicar la función a todas las columnas numéricas del dataframe
+columnas_cuantitativas = df.select_dtypes(include=['int64', 'float64']).columns
+for columna in columnas_cuantitativas:
+    analizar_variable_cuantitativa(df, columna)
 ```
 
 ## Análisis de datos cualitativos
-### Análisis de Parental_Involvement
+
 ```{python}
-values_Parental_Involvement = df['Parental_Involvement'].value_counts()
-moda_Parental_Involvement = values_Parental_Involvement.idxmax()
 
-print("Análisis Univariado de la Variable 'Zona' (Top 20)")
-print(f"Frecuencia de las 10 categorías más frecuentes:\n{values_Parental_Involvement}")
-print(f"Moda (Categoría más frecuente): {moda_Parental_Involvement}")
+import pandas as pd
+import matplotlib.pyplot as plt
+import seaborn as sns
 
-plt.figure(figsize=(10, 6))
-sns.countplot(x='Parental_Involvement', data=df[df['Parental_Involvement'].isin(values_Parental_Involvement.index)], order=values_Parental_Involvement.index, palette='Set2')
-plt.title('Distribución de Parental_Involvement')
-plt.xlabel('Parental_Involvement')
-plt.ylabel('Frecuencia')
-plt.xticks(rotation=45)
-plt.show()
-```
+# Función para el análisis univariado de variables categóricas
+def analizar_variable_categorica(df, columna):
+    values_counts = df[columna].value_counts()
+    moda = values_counts.idxmax()
 
-### Análisis de Access_to_Resources
-```{python}
-values_Access_to_Resources = df['Access_to_Resources'].value_counts()
-moda_Access_to_Resources = values_Access_to_Resources.idxmax()
+    print(f"Análisis Univariado de la Variable '{columna}'")
+    print(f"Frecuencia de las categorías:\n{values_counts}")
+    print(f"Moda (Categoría más frecuente): {moda}")
+    print("\n")
 
-print("Análisis Univariado de la Variable 'Zona' (Top 20)")
-print(f"Frecuencia de las 10 categorías más frecuentes:\n{values_Access_to_Resources}")
-print(f"Moda (Categoría más frecuente): {moda_Access_to_Resources}")
+    # Visualización de la distribución
+    plt.figure(figsize=(10, 6))
+    sns.countplot(
+        x=columna, 
+        data=df[df[columna].isin(values_counts.index)], 
+        order=values_counts.index, 
+        palette='Set2'
+    )
+    plt.title(f'Distribución de {columna}')
+    plt.xlabel(columna)
+    plt.ylabel('Frecuencia')
+    plt.xticks(rotation=45)
+    plt.show()
 
-plt.figure(figsize=(10, 6))
-sns.countplot(x='Access_to_Resources', data=df[df['Access_to_Resources'].isin(values_Access_to_Resources.index)], order=values_Access_to_Resources.index, palette='Set2')
-plt.title('Distribución de Access_to_Resources')
-plt.xlabel('Access_to_Resources')
-plt.ylabel('Frecuencia')
-plt.xticks(rotation=45)
-plt.show()
-```
+# Aplicar la función a todas las columnas categóricas del dataframe
+columnas_categoricas = df.select_dtypes(include=['object']).columns
+for columna in columnas_categoricas:
+    analizar_variable_categorica(df, columna)
 
-### Análisis de Extracurricular_Activities
-```{python}
-values_Access_to_Resources = df['Extracurricular_Activities'].value_counts()
-moda_Access_to_Resources = values_Access_to_Resources.idxmax()
-
-print("Análisis Univariado de la Variable 'Zona' (Top 20)")
-print(f"Frecuencia de las 10 categorías más frecuentes:\n{values_Access_to_Resources}")
-print(f"Moda (Categoría más frecuente): {moda_Access_to_Resources}")
-
-plt.figure(figsize=(10, 6))
-sns.countplot(x='Extracurricular_Activities', data=df[df['Extracurricular_Activities'].isin(values_Access_to_Resources.index)], order=values_Access_to_Resources.index, palette='Set2')
-plt.title('Distribución de Extracurricular_Activities')
-plt.xlabel('Extracurricular_Activities')
-plt.ylabel('Frecuencia')
-plt.xticks(rotation=45)
-plt.show()
-```
-
-### Análisis de Motivation_Level
-```{python}
-values_Access_to_Resources = df['Access_to_Resources'].value_counts()
-moda_Access_to_Resources = values_Access_to_Resources.idxmax()
-
-print("Análisis Univariado de la Variable 'Zona' (Top 20)")
-print(f"Frecuencia de las 10 categorías más frecuentes:\n{values_Access_to_Resources}")
-print(f"Moda (Categoría más frecuente): {moda_Access_to_Resources}")
-
-plt.figure(figsize=(10, 6))
-sns.countplot(x='Access_to_Resources', data=df[df['Access_to_Resources'].isin(values_Access_to_Resources.index)], order=values_Access_to_Resources.index, palette='Set2')
-plt.title('Distribución de Access_to_Resources')
-plt.xlabel('Access_to_Resources')
-plt.ylabel('Frecuencia')
-plt.xticks(rotation=45)
-plt.show()
-```
-
-### Análisis de Internet_Access
-```{python}
-values_Access_to_Resources = df['Access_to_Resources'].value_counts()
-moda_Access_to_Resources = values_Access_to_Resources.idxmax()
-
-print("Análisis Univariado de la Variable 'Zona' (Top 20)")
-print(f"Frecuencia de las 10 categorías más frecuentes:\n{values_Access_to_Resources}")
-print(f"Moda (Categoría más frecuente): {moda_Access_to_Resources}")
-
-plt.figure(figsize=(10, 6))
-sns.countplot(x='Access_to_Resources', data=df[df['Access_to_Resources'].isin(values_Access_to_Resources.index)], order=values_Access_to_Resources.index, palette='Set2')
-plt.title('Distribución de Access_to_Resources')
-plt.xlabel('Access_to_Resources')
-plt.ylabel('Frecuencia')
-plt.xticks(rotation=45)
-plt.show()
-```
-
-### Análisis de Family_Income
-```{python}
-values_Access_to_Resources = df['Access_to_Resources'].value_counts()
-moda_Access_to_Resources = values_Access_to_Resources.idxmax()
-
-print("Análisis Univariado de la Variable 'Zona' (Top 20)")
-print(f"Frecuencia de las 10 categorías más frecuentes:\n{values_Access_to_Resources}")
-print(f"Moda (Categoría más frecuente): {moda_Access_to_Resources}")
-
-plt.figure(figsize=(10, 6))
-sns.countplot(x='Access_to_Resources', data=df[df['Access_to_Resources'].isin(values_Access_to_Resources.index)], order=values_Access_to_Resources.index, palette='Set2')
-plt.title('Distribución de Access_to_Resources')
-plt.xlabel('Access_to_Resources')
-plt.ylabel('Frecuencia')
-plt.xticks(rotation=45)
-plt.show()
-```
-
-### Análisis de Teacher_Quality
-```{python}
-values_Access_to_Resources = df['Access_to_Resources'].value_counts()
-moda_Access_to_Resources = values_Access_to_Resources.idxmax()
-
-print("Análisis Univariado de la Variable 'Zona' (Top 20)")
-print(f"Frecuencia de las 10 categorías más frecuentes:\n{values_Access_to_Resources}")
-print(f"Moda (Categoría más frecuente): {moda_Access_to_Resources}")
-
-plt.figure(figsize=(10, 6))
-sns.countplot(x='Access_to_Resources', data=df[df['Access_to_Resources'].isin(values_Access_to_Resources.index)], order=values_Access_to_Resources.index, palette='Set2')
-plt.title('Distribución de Access_to_Resources')
-plt.xlabel('Access_to_Resources')
-plt.ylabel('Frecuencia')
-plt.xticks(rotation=45)
-plt.show()
-```
-
-### Análisis de School_Type
-```{python}
-values_Access_to_Resources = df['Access_to_Resources'].value_counts()
-moda_Access_to_Resources = values_Access_to_Resources.idxmax()
-
-print("Análisis Univariado de la Variable 'Zona' (Top 20)")
-print(f"Frecuencia de las 10 categorías más frecuentes:\n{values_Access_to_Resources}")
-print(f"Moda (Categoría más frecuente): {moda_Access_to_Resources}")
-
-plt.figure(figsize=(10, 6))
-sns.countplot(x='Access_to_Resources', data=df[df['Access_to_Resources'].isin(values_Access_to_Resources.index)], order=values_Access_to_Resources.index, palette='Set2')
-plt.title('Distribución de Access_to_Resources')
-plt.xlabel('Access_to_Resources')
-plt.ylabel('Frecuencia')
-plt.xticks(rotation=45)
-plt.show()
-```
-
-### Análisis de Peer_Influence
-```{python}
-values_Access_to_Resources = df['Access_to_Resources'].value_counts()
-moda_Access_to_Resources = values_Access_to_Resources.idxmax()
-
-print("Análisis Univariado de la Variable 'Zona' (Top 20)")
-print(f"Frecuencia de las 10 categorías más frecuentes:\n{values_Access_to_Resources}")
-print(f"Moda (Categoría más frecuente): {moda_Access_to_Resources}")
-
-plt.figure(figsize=(10, 6))
-sns.countplot(x='Access_to_Resources', data=df[df['Access_to_Resources'].isin(values_Access_to_Resources.index)], order=values_Access_to_Resources.index, palette='Set2')
-plt.title('Distribución de Access_to_Resources')
-plt.xlabel('Access_to_Resources')
-plt.ylabel('Frecuencia')
-plt.xticks(rotation=45)
-plt.show()
-```
-
-### Análisis de Learning_Disabilities
-```{python}
-values_Access_to_Resources = df['Access_to_Resources'].value_counts()
-moda_Access_to_Resources = values_Access_to_Resources.idxmax()
-
-print("Análisis Univariado de la Variable 'Zona' (Top 20)")
-print(f"Frecuencia de las 10 categorías más frecuentes:\n{values_Access_to_Resources}")
-print(f"Moda (Categoría más frecuente): {moda_Access_to_Resources}")
-
-plt.figure(figsize=(10, 6))
-sns.countplot(x='Access_to_Resources', data=df[df['Access_to_Resources'].isin(values_Access_to_Resources.index)], order=values_Access_to_Resources.index, palette='Set2')
-plt.title('Distribución de Access_to_Resources')
-plt.xlabel('Access_to_Resources')
-plt.ylabel('Frecuencia')
-plt.xticks(rotation=45)
-plt.show()
-```
-
-### Análisis de Parental_Education_Level
-```{python}
-values_Access_to_Resources = df['Access_to_Resources'].value_counts()
-moda_Access_to_Resources = values_Access_to_Resources.idxmax()
-
-print("Análisis Univariado de la Variable 'Zona' (Top 20)")
-print(f"Frecuencia de las 10 categorías más frecuentes:\n{values_Access_to_Resources}")
-print(f"Moda (Categoría más frecuente): {moda_Access_to_Resources}")
-
-plt.figure(figsize=(10, 6))
-sns.countplot(x='Access_to_Resources', data=df[df['Access_to_Resources'].isin(values_Access_to_Resources.index)], order=values_Access_to_Resources.index, palette='Set2')
-plt.title('Distribución de Access_to_Resources')
-plt.xlabel('Access_to_Resources')
-plt.ylabel('Frecuencia')
-plt.xticks(rotation=45)
-plt.show()
-```
-
-### Análisis de Distance_from_Home
-```{python}
-values_Access_to_Resources = df['Access_to_Resources'].value_counts()
-moda_Access_to_Resources = values_Access_to_Resources.idxmax()
-
-print("Análisis Univariado de la Variable 'Zona' (Top 20)")
-print(f"Frecuencia de las 10 categorías más frecuentes:\n{values_Access_to_Resources}")
-print(f"Moda (Categoría más frecuente): {moda_Access_to_Resources}")
-
-plt.figure(figsize=(10, 6))
-sns.countplot(x='Access_to_Resources', data=df[df['Access_to_Resources'].isin(values_Access_to_Resources.index)], order=values_Access_to_Resources.index, palette='Set2')
-plt.title('Distribución de Access_to_Resources')
-plt.xlabel('Access_to_Resources')
-plt.ylabel('Frecuencia')
-plt.xticks(rotation=45)
-plt.show()
-```
-
-### Análisis de Gender
-```{python}
-values_Access_to_Resources = df['Access_to_Resources'].value_counts()
-moda_Access_to_Resources = values_Access_to_Resources.idxmax()
-
-print("Análisis Univariado de la Variable 'Zona' (Top 20)")
-print(f"Frecuencia de las 10 categorías más frecuentes:\n{values_Access_to_Resources}")
-print(f"Moda (Categoría más frecuente): {moda_Access_to_Resources}")
-
-plt.figure(figsize=(10, 6))
-sns.countplot(x='Access_to_Resources', data=df[df['Access_to_Resources'].isin(values_Access_to_Resources.index)], order=values_Access_to_Resources.index, palette='Set2')
-plt.title('Distribución de Access_to_Resources')
-plt.xlabel('Access_to_Resources')
-plt.ylabel('Frecuencia')
-plt.xticks(rotation=45)
-plt.show()
 ```
