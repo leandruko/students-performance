@@ -130,7 +130,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="recopilación-de-datos" class="level2">
 <h2 class="anchored" data-anchor-id="recopilación-de-datos">2. Recopilación de datos</h2>
-<div id="5cda1e6b" class="cell" data-execution_count="1">
+<div id="214ddf4c" class="cell" data-execution_count="1">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Importación de librerías</span></span>
@@ -314,7 +314,7 @@ dtype: object</code></pre>
 </section>
 <section id="análisis-de-datos-cuantitativos" class="level2">
 <h2 class="anchored" data-anchor-id="análisis-de-datos-cuantitativos">Análisis de datos cuantitativos</h2>
-<div id="01b68fa2" class="cell" data-execution_count="2">
+<div id="c954a023" class="cell" data-execution_count="2">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
@@ -473,7 +473,7 @@ Valor Máximo: 101.00
 </section>
 <section id="análisis-de-datos-cualitativos" class="level2">
 <h2 class="anchored" data-anchor-id="análisis-de-datos-cualitativos">Análisis de datos cualitativos</h2>
-<div id="ef9da52c" class="cell" data-execution_count="3">
+<div id="2ecc91be" class="cell" data-execution_count="3">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
@@ -755,7 +755,7 @@ Moda (Categoría más frecuente): Male
 </section>
 <section id="verificar-si-hay-valores-nulos-en-el-dataset" class="level1">
 <h1>Verificar si hay valores nulos en el dataset</h1>
-<div id="c961a545" class="cell" data-execution_count="4">
+<div id="a636b948" class="cell" data-execution_count="4">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb25"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"</span><span class="ch">\n</span><span class="st">Valores nulos por columna:"</span>)</span>
@@ -790,247 +790,67 @@ dtype: int64</code></pre>
 </section>
 <section id="verificar-si-hay-valores-atopicos" class="level1">
 <h1>Verificar si hay valores atopicos</h1>
-<div id="297ba9b6" class="cell" data-execution_count="5">
+<div id="a36ff0b2" class="cell" data-execution_count="5">
 <details class="code-fold">
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Función para detectar outliers</span></span>
-<span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> detectar_outliers(df, columna, metodo<span class="op">=</span><span class="st">'iqr'</span>, threshold<span class="op">=</span><span class="fl">1.5</span>):</span>
-<span id="cb27-3"><a href="#cb27-3" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""</span></span>
-<span id="cb27-4"><a href="#cb27-4" aria-hidden="true" tabindex="-1"></a><span class="co">    Detecta outliers en una columna numérica de un DataFrame usando el método del IQR o Z-score.</span></span>
-<span id="cb27-5"><a href="#cb27-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb27-6"><a href="#cb27-6" aria-hidden="true" tabindex="-1"></a><span class="co">    Parámetros:</span></span>
-<span id="cb27-7"><a href="#cb27-7" aria-hidden="true" tabindex="-1"></a><span class="co">    - df: DataFrame de pandas.</span></span>
-<span id="cb27-8"><a href="#cb27-8" aria-hidden="true" tabindex="-1"></a><span class="co">    - columna: Nombre de la columna a analizar.</span></span>
-<span id="cb27-9"><a href="#cb27-9" aria-hidden="true" tabindex="-1"></a><span class="co">    - metodo: 'iqr' para rango intercuartílico o 'zscore' para Z-score (por defecto, 'iqr').</span></span>
-<span id="cb27-10"><a href="#cb27-10" aria-hidden="true" tabindex="-1"></a><span class="co">    - threshold: Umbral para detectar outliers (por defecto, 1.5 para IQR, 3 para Z-score).</span></span>
-<span id="cb27-11"><a href="#cb27-11" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb27-12"><a href="#cb27-12" aria-hidden="true" tabindex="-1"></a><span class="co">    Retorna:</span></span>
-<span id="cb27-13"><a href="#cb27-13" aria-hidden="true" tabindex="-1"></a><span class="co">    - DataFrame con los outliers detectados.</span></span>
-<span id="cb27-14"><a href="#cb27-14" aria-hidden="true" tabindex="-1"></a><span class="co">    """</span></span>
-<span id="cb27-15"><a href="#cb27-15" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> metodo <span class="op">==</span> <span class="st">'iqr'</span>:</span>
-<span id="cb27-16"><a href="#cb27-16" aria-hidden="true" tabindex="-1"></a>        <span class="co"># Cálculo de Q1, Q3 y IQR</span></span>
-<span id="cb27-17"><a href="#cb27-17" aria-hidden="true" tabindex="-1"></a>        Q1 <span class="op">=</span> df[columna].quantile(<span class="fl">0.25</span>)</span>
-<span id="cb27-18"><a href="#cb27-18" aria-hidden="true" tabindex="-1"></a>        Q3 <span class="op">=</span> df[columna].quantile(<span class="fl">0.75</span>)</span>
-<span id="cb27-19"><a href="#cb27-19" aria-hidden="true" tabindex="-1"></a>        IQR <span class="op">=</span> Q3 <span class="op">-</span> Q1</span>
-<span id="cb27-20"><a href="#cb27-20" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb27-21"><a href="#cb27-21" aria-hidden="true" tabindex="-1"></a>        <span class="co"># Rango para identificar outliers</span></span>
-<span id="cb27-22"><a href="#cb27-22" aria-hidden="true" tabindex="-1"></a>        lower_bound <span class="op">=</span> Q1 <span class="op">-</span> threshold <span class="op">*</span> IQR</span>
-<span id="cb27-23"><a href="#cb27-23" aria-hidden="true" tabindex="-1"></a>        upper_bound <span class="op">=</span> Q3 <span class="op">+</span> threshold <span class="op">*</span> IQR</span>
-<span id="cb27-24"><a href="#cb27-24" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb27-25"><a href="#cb27-25" aria-hidden="true" tabindex="-1"></a>        <span class="co"># Identificación de outliers</span></span>
-<span id="cb27-26"><a href="#cb27-26" aria-hidden="true" tabindex="-1"></a>        outliers <span class="op">=</span> df[(df[columna] <span class="op">&lt;</span> lower_bound) <span class="op">|</span> (df[columna] <span class="op">&gt;</span> upper_bound)]</span>
-<span id="cb27-27"><a href="#cb27-27" aria-hidden="true" tabindex="-1"></a>        metodo_desc <span class="op">=</span> <span class="ss">f'IQR (Threshold=</span><span class="sc">{</span>threshold<span class="sc">}</span><span class="ss">)'</span></span>
-<span id="cb27-28"><a href="#cb27-28" aria-hidden="true" tabindex="-1"></a>    </span>
-<span id="cb27-29"><a href="#cb27-29" aria-hidden="true" tabindex="-1"></a>    <span class="cf">elif</span> metodo <span class="op">==</span> <span class="st">'zscore'</span>:</span>
-<span id="cb27-30"><a href="#cb27-30" aria-hidden="true" tabindex="-1"></a>        <span class="co"># Cálculo del Z-score</span></span>
-<span id="cb27-31"><a href="#cb27-31" aria-hidden="true" tabindex="-1"></a>        mean <span class="op">=</span> df[columna].mean()</span>
-<span id="cb27-32"><a href="#cb27-32" aria-hidden="true" tabindex="-1"></a>        std <span class="op">=</span> df[columna].std()</span>
-<span id="cb27-33"><a href="#cb27-33" aria-hidden="true" tabindex="-1"></a>        z_scores <span class="op">=</span> (df[columna] <span class="op">-</span> mean) <span class="op">/</span> std</span>
-<span id="cb27-34"><a href="#cb27-34" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb27-35"><a href="#cb27-35" aria-hidden="true" tabindex="-1"></a>        <span class="co"># Identificación de outliers</span></span>
-<span id="cb27-36"><a href="#cb27-36" aria-hidden="true" tabindex="-1"></a>        outliers <span class="op">=</span> df[(z_scores <span class="op">&lt;</span> <span class="op">-</span>threshold) <span class="op">|</span> (z_scores <span class="op">&gt;</span> threshold)]</span>
-<span id="cb27-37"><a href="#cb27-37" aria-hidden="true" tabindex="-1"></a>        metodo_desc <span class="op">=</span> <span class="ss">f'Z-score (Threshold=</span><span class="sc">{</span>threshold<span class="sc">}</span><span class="ss">)'</span></span>
-<span id="cb27-38"><a href="#cb27-38" aria-hidden="true" tabindex="-1"></a>    </span>
-<span id="cb27-39"><a href="#cb27-39" aria-hidden="true" tabindex="-1"></a>    <span class="cf">else</span>:</span>
-<span id="cb27-40"><a href="#cb27-40" aria-hidden="true" tabindex="-1"></a>        <span class="cf">raise</span> <span class="pp">ValueError</span>(<span class="st">"Método no reconocido. Usa 'iqr' o 'zscore'."</span>)</span>
-<span id="cb27-41"><a href="#cb27-41" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb27-42"><a href="#cb27-42" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="ss">f"Outliers detectados en la columna '</span><span class="sc">{</span>columna<span class="sc">}</span><span class="ss">' usando el método </span><span class="sc">{</span>metodo_desc<span class="sc">}</span><span class="ss">: </span><span class="sc">{</span><span class="bu">len</span>(outliers)<span class="sc">}</span><span class="ss">"</span>)</span>
-<span id="cb27-43"><a href="#cb27-43" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> outliers</span>
-<span id="cb27-44"><a href="#cb27-44" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb27-45"><a href="#cb27-45" aria-hidden="true" tabindex="-1"></a><span class="co"># Aplicar la función a todas las columnas numéricas</span></span>
-<span id="cb27-46"><a href="#cb27-46" aria-hidden="true" tabindex="-1"></a>columnas_numericas <span class="op">=</span> df.select_dtypes(include<span class="op">=</span>[<span class="st">'int64'</span>, <span class="st">'float64'</span>]).columns</span>
-<span id="cb27-47"><a href="#cb27-47" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> columna <span class="kw">in</span> columnas_numericas:</span>
-<span id="cb27-48"><a href="#cb27-48" aria-hidden="true" tabindex="-1"></a>    outliers <span class="op">=</span> detectar_outliers(df, columna, metodo<span class="op">=</span><span class="st">'iqr'</span>, threshold<span class="op">=</span><span class="fl">1.5</span>)</span>
-<span id="cb27-49"><a href="#cb27-49" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> <span class="kw">not</span> outliers.empty:</span>
-<span id="cb27-50"><a href="#cb27-50" aria-hidden="true" tabindex="-1"></a>        <span class="bu">print</span>(outliers.head())  <span class="co"># Muestra los primeros 5 outliers detectados por columna</span></span>
-<span id="cb27-51"><a href="#cb27-51" aria-hidden="true" tabindex="-1"></a>        <span class="bu">print</span>(<span class="st">"</span><span class="ch">\n</span><span class="st">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
-<div class="cell-output cell-output-stdout">
-<pre><code>Outliers detectados en la columna 'Hours_Studied' usando el método IQR (Threshold=1.5): 43
-      Hours_Studied  Attendance Parental_Involvement Access_to_Resources  \
-209              43          86                 High              Medium   
-262               1          69                 High              Medium   
-478              38          86                  Low                High   
-1061              3          85                  Low                High   
-1101              3          62               Medium                 Low   
-
-     Extracurricular_Activities  Sleep_Hours  Previous_Scores  \
-209                         Yes            7               97   
-262                         Yes            6               97   
-478                         Yes            7               79   
-1061                         No            8               73   
-1101                         No            6               67   
-
-     Motivation_Level Internet_Access  Tutoring_Sessions Family_Income  \
-209            Medium             Yes                  2        Medium   
-262            Medium             Yes                  1           Low   
-478               Low             Yes                  3           Low   
-1061              Low             Yes                  2           Low   
-1101           Medium             Yes                  1           Low   
-
-     Teacher_Quality School_Type Peer_Influence  Physical_Activity  \
-209             High      Public       Positive                  1   
-262           Medium      Public       Positive                  3   
-478           Medium      Public       Negative                  3   
-1061          Medium     Private        Neutral                  3   
-1101          Medium      Public       Negative                  3   
-
-     Learning_Disabilities Parental_Education_Level Distance_from_Home  \
-209                     No              High School               Near   
-262                     No              High School               Near   
-478                     No              High School               Near   
-1061                    No              High School               Near   
-1101                    No              High School               Near   
-
-      Gender  Exam_Score  
-209   Female          78  
-262   Female          61  
-478     Male          73  
-1061    Male          62  
-1101    Male          55  
-
-
-Outliers detectados en la columna 'Attendance' usando el método IQR (Threshold=1.5): 0
-Outliers detectados en la columna 'Sleep_Hours' usando el método IQR (Threshold=1.5): 0
-Outliers detectados en la columna 'Previous_Scores' usando el método IQR (Threshold=1.5): 0
-Outliers detectados en la columna 'Tutoring_Sessions' usando el método IQR (Threshold=1.5): 430
-     Hours_Studied  Attendance Parental_Involvement Access_to_Resources  \
-10              17          80                  Low                High   
-76              21          77                  Low              Medium   
-82              29          78                 High                High   
-124             24          73               Medium                High   
-129             17          94                  Low              Medium   
-
-    Extracurricular_Activities  Sleep_Hours  Previous_Scores Motivation_Level  \
-10                          No            8               88           Medium   
-76                         Yes            7               90           Medium   
-82                         Yes            4               93              Low   
-124                        Yes            8               64           Medium   
-129                        Yes            8               65              Low   
-
-    Internet_Access  Tutoring_Sessions Family_Income Teacher_Quality  \
-10               No                  4        Medium            High   
-76              Yes                  4        Medium          Medium   
-82              Yes                  5        Medium            High   
-124             Yes                  4          High          Medium   
-129             Yes                  4        Medium          Medium   
-
-    School_Type Peer_Influence  Physical_Activity Learning_Disabilities  \
-10      Private        Neutral                  4                    No   
-76      Private        Neutral                  3                    No   
-82       Public        Neutral                  3                    No   
-124     Private        Neutral                  3                   Yes   
-129      Public        Neutral                  6                    No   
-
-    Parental_Education_Level Distance_from_Home  Gender  Exam_Score  
-10                   College           Moderate    Male          68  
-76              Postgraduate           Moderate    Male          68  
-82                   College               Near    Male          74  
-124                  College           Moderate    Male          68  
-129              High School                Far  Female          68  
-
-
-Outliers detectados en la columna 'Physical_Activity' usando el método IQR (Threshold=1.5): 0
-Outliers detectados en la columna 'Exam_Score' usando el método IQR (Threshold=1.5): 104
-     Hours_Studied  Attendance Parental_Involvement Access_to_Resources  \
-94              18          89                 High              Medium   
-106             31         100               Medium              Medium   
-113             35          99                 High                High   
-209             43          86                 High              Medium   
-217             19          70               Medium                 Low   
-
-    Extracurricular_Activities  Sleep_Hours  Previous_Scores Motivation_Level  \
-94                         Yes            4               73           Medium   
-106                         No            7               59           Medium   
-113                        Yes            7               85              Low   
-209                        Yes            7               97           Medium   
-217                         No            7               54             High   
-
-    Internet_Access  Tutoring_Sessions Family_Income Teacher_Quality  \
-94              Yes                  3          High          Medium   
-106             Yes                  2          High            High   
-113             Yes                  2        Medium            High   
-209             Yes                  2        Medium            High   
-217             Yes                  0        Medium          Medium   
-
-    School_Type Peer_Influence  Physical_Activity Learning_Disabilities  \
-94      Private       Positive                  2                    No   
-106      Public       Positive                  5                    No   
-113     Private        Neutral                  2                    No   
-209      Public       Positive                  1                    No   
-217      Public       Positive                  2                   Yes   
-
-    Parental_Education_Level Distance_from_Home  Gender  Exam_Score  
-94                   College               Near  Female         100  
-106             Postgraduate           Moderate    Male          76  
-113             Postgraduate               Near  Female          79  
-209              High School               Near  Female          78  
-217              High School           Moderate    Male          89  
-
-</code></pre>
-</div>
-</div>
-<div id="b2e09120" class="cell" data-execution_count="6">
-<details class="code-fold">
-<summary>Code</summary>
-<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> generar_boxplot(df, columna):</span>
-<span id="cb29-2"><a href="#cb29-2" aria-hidden="true" tabindex="-1"></a>    plt.figure(figsize<span class="op">=</span>(<span class="dv">10</span>, <span class="dv">6</span>))</span>
-<span id="cb29-3"><a href="#cb29-3" aria-hidden="true" tabindex="-1"></a>    sns.boxplot(data<span class="op">=</span>df, x<span class="op">=</span>columna, palette<span class="op">=</span><span class="st">'Set2'</span>)</span>
-<span id="cb29-4"><a href="#cb29-4" aria-hidden="true" tabindex="-1"></a>    plt.title(<span class="ss">f'Boxplot de </span><span class="sc">{</span>columna<span class="sc">}</span><span class="ss">'</span>)</span>
-<span id="cb29-5"><a href="#cb29-5" aria-hidden="true" tabindex="-1"></a>    plt.xlabel(columna)</span>
-<span id="cb29-6"><a href="#cb29-6" aria-hidden="true" tabindex="-1"></a>    plt.show()</span>
-<span id="cb29-7"><a href="#cb29-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb29-8"><a href="#cb29-8" aria-hidden="true" tabindex="-1"></a><span class="co"># Aplicar la función a todas las columnas numéricas del dataframe</span></span>
-<span id="cb29-9"><a href="#cb29-9" aria-hidden="true" tabindex="-1"></a>columnas_numericas <span class="op">=</span> df.select_dtypes(include<span class="op">=</span>[<span class="st">'int64'</span>, <span class="st">'float64'</span>]).columns</span>
-<span id="cb29-10"><a href="#cb29-10" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> columna <span class="kw">in</span> columnas_numericas:</span>
-<span id="cb29-11"><a href="#cb29-11" aria-hidden="true" tabindex="-1"></a>    generar_boxplot(df, columna)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> generar_boxplot(df, columna):</span>
+<span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a>    plt.figure(figsize<span class="op">=</span>(<span class="dv">10</span>, <span class="dv">6</span>))</span>
+<span id="cb27-3"><a href="#cb27-3" aria-hidden="true" tabindex="-1"></a>    sns.boxplot(data<span class="op">=</span>df, x<span class="op">=</span>columna, palette<span class="op">=</span><span class="st">'Set2'</span>)</span>
+<span id="cb27-4"><a href="#cb27-4" aria-hidden="true" tabindex="-1"></a>    plt.title(<span class="ss">f'Boxplot de </span><span class="sc">{</span>columna<span class="sc">}</span><span class="ss">'</span>)</span>
+<span id="cb27-5"><a href="#cb27-5" aria-hidden="true" tabindex="-1"></a>    plt.xlabel(columna)</span>
+<span id="cb27-6"><a href="#cb27-6" aria-hidden="true" tabindex="-1"></a>    plt.show()</span>
+<span id="cb27-7"><a href="#cb27-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb27-8"><a href="#cb27-8" aria-hidden="true" tabindex="-1"></a><span class="co"># Aplicar la función a todas las columnas numéricas del dataframe</span></span>
+<span id="cb27-9"><a href="#cb27-9" aria-hidden="true" tabindex="-1"></a>columnas_numericas <span class="op">=</span> df.select_dtypes(include<span class="op">=</span>[<span class="st">'int64'</span>, <span class="st">'float64'</span>]).columns</span>
+<span id="cb27-10"><a href="#cb27-10" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> columna <span class="kw">in</span> columnas_numericas:</span>
+<span id="cb27-11"><a href="#cb27-11" aria-hidden="true" tabindex="-1"></a>    generar_boxplot(df, columna)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="version_quarto_files/figure-html/cell-7-output-1.png" width="768" height="523" class="figure-img"></p>
+<p><img src="version_quarto_files/figure-html/cell-6-output-1.png" width="768" height="523" class="figure-img"></p>
 </figure>
 </div>
 </div>
 <div class="cell-output cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="version_quarto_files/figure-html/cell-7-output-2.png" width="768" height="523" class="figure-img"></p>
+<p><img src="version_quarto_files/figure-html/cell-6-output-2.png" width="768" height="523" class="figure-img"></p>
 </figure>
 </div>
 </div>
 <div class="cell-output cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="version_quarto_files/figure-html/cell-7-output-3.png" width="768" height="523" class="figure-img"></p>
+<p><img src="version_quarto_files/figure-html/cell-6-output-3.png" width="768" height="523" class="figure-img"></p>
 </figure>
 </div>
 </div>
 <div class="cell-output cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="version_quarto_files/figure-html/cell-7-output-4.png" width="768" height="523" class="figure-img"></p>
+<p><img src="version_quarto_files/figure-html/cell-6-output-4.png" width="768" height="523" class="figure-img"></p>
 </figure>
 </div>
 </div>
 <div class="cell-output cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="version_quarto_files/figure-html/cell-7-output-5.png" width="768" height="523" class="figure-img"></p>
+<p><img src="version_quarto_files/figure-html/cell-6-output-5.png" width="768" height="523" class="figure-img"></p>
 </figure>
 </div>
 </div>
 <div class="cell-output cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="version_quarto_files/figure-html/cell-7-output-6.png" width="768" height="523" class="figure-img"></p>
+<p><img src="version_quarto_files/figure-html/cell-6-output-6.png" width="768" height="523" class="figure-img"></p>
 </figure>
 </div>
 </div>
 <div class="cell-output cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="version_quarto_files/figure-html/cell-7-output-7.png" width="768" height="523" class="figure-img"></p>
+<p><img src="version_quarto_files/figure-html/cell-6-output-7.png" width="768" height="523" class="figure-img"></p>
 </figure>
 </div>
 </div>

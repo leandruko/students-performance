@@ -41,12 +41,6 @@ print(df.info())
 print("\nDescripción estadística:")
 print(df.describe())
 
-# Verificar si hay valores nulos en el dataset
-print("\nValores nulos por columna:")
-print(df.isnull().sum())
-
-df.describe()
-
 info = df.shape
 print("\nLa cantidad de filas y columnas en nuestro dataframe es de:",info)
 
@@ -138,63 +132,6 @@ print(df.isnull().sum())
 ```
 
 # Verificar si hay valores atopicos
-
-```{python}
-# Función para detectar outliers
-def detectar_outliers(df, columna, metodo='iqr', threshold=1.5):
-    """
-    Detecta outliers en una columna numérica de un DataFrame usando el método del IQR o Z-score.
-
-    Parámetros:
-    - df: DataFrame de pandas.
-    - columna: Nombre de la columna a analizar.
-    - metodo: 'iqr' para rango intercuartílico o 'zscore' para Z-score (por defecto, 'iqr').
-    - threshold: Umbral para detectar outliers (por defecto, 1.5 para IQR, 3 para Z-score).
-
-    Retorna:
-    - DataFrame con los outliers detectados.
-    """
-    if metodo == 'iqr':
-        # Cálculo de Q1, Q3 y IQR
-        Q1 = df[columna].quantile(0.25)
-        Q3 = df[columna].quantile(0.75)
-        IQR = Q3 - Q1
-
-        # Rango para identificar outliers
-        lower_bound = Q1 - threshold * IQR
-        upper_bound = Q3 + threshold * IQR
-
-        # Identificación de outliers
-        outliers = df[(df[columna] < lower_bound) | (df[columna] > upper_bound)]
-        metodo_desc = f'IQR (Threshold={threshold})'
-    
-    elif metodo == 'zscore':
-        # Cálculo del Z-score
-        mean = df[columna].mean()
-        std = df[columna].std()
-        z_scores = (df[columna] - mean) / std
-
-        # Identificación de outliers
-        outliers = df[(z_scores < -threshold) | (z_scores > threshold)]
-        metodo_desc = f'Z-score (Threshold={threshold})'
-    
-    else:
-        raise ValueError("Método no reconocido. Usa 'iqr' o 'zscore'.")
-
-    print(f"Outliers detectados en la columna '{columna}' usando el método {metodo_desc}: {len(outliers)}")
-    return outliers
-
-# Aplicar la función a todas las columnas numéricas
-columnas_numericas = df.select_dtypes(include=['int64', 'float64']).columns
-for columna in columnas_numericas:
-    outliers = detectar_outliers(df, columna, metodo='iqr', threshold=1.5)
-    if not outliers.empty:
-        print(outliers.head())  # Muestra los primeros 5 outliers detectados por columna
-        print("\n")
-
-```
-
-
 ```{python}
 def generar_boxplot(df, columna):
     plt.figure(figsize=(10, 6))
