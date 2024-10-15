@@ -180,6 +180,7 @@ df['Parental_Education_Level'] = le.fit_transform(df['Parental_Education_Level']
 ```
 
 ## OneHotEncoder
+### Internet_Access, Extracurricular_Activities, School_Type, GenderLearning_Disabilities
 ```{python}
 
 ```
