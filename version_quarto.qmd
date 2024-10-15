@@ -21,6 +21,7 @@ import matplotlib.pyplot as plt
 import numpy as np
 import seaborn as sns
 from sklearn.preprocessing import LabelEncoder
+from sklearn.preprocessing import OneHotEncoder
 import warnings
 warnings.filterwarnings('ignore', category=FutureWarning)
 
@@ -160,6 +161,25 @@ print(df[['Parental_Education_Level', 'Distance_from_Home', 'Teacher_Quality']].
 ### Vamos a realizar el tratamiento de datos pasos a realizar
 ### Convertir datos categoricos a numericos para esto vamos a aplicar one hot encoder y label conder dependiendo a tipo de dato que se trate
 ### Ademas de convertir los datos categoricos en general para aplicar estos datos en modelos de machine learnign, ademas de verificar el balanceo de datos y aplicacion de tecnicas para corregir variables con outlayers
+
+## LabelEncoder
+### Parental_Involvement, Access_to_Resources, Motivation_Level,Family_Income,Teacher_Quality,Peer_Influence
+```{python}
+for column in df.columns:
+    unique_values = df[column].unique()
+    print(f"Valores únicos en la columna '{column}':")
+    print(unique_values)
+    print("\n------------------------------------\n")
+```
+
+
+```{python}
+le = LabelEncoder()
+df['Parental_Education_Level'] = le.fit_transform(df['Parental_Education_Level'].astype(str))
+
+```
+
+## OneHotEncoder
 ```{python}
 
 ```
