@@ -146,3 +146,20 @@ for columna in columnas_numericas:
     generar_boxplot(df, columna)
 ```
 
+```{python}
+# Reemplazar los valores nulos por la media de cada columna
+df['Parental_Education_Level'].fillna(df['Parental_Education_Level'].mean(), inplace=True)
+df['Distance_from_Home'].fillna(df['Distance_from_Home'].mean(), inplace=True)
+df['Teacher_Quality'].fillna(df['Teacher_Quality'].mean(), inplace=True)
+
+# Verificar que no queden valores nulos en estas columnas
+print(df[['Parental_Education_Level', 'Distance_from_Home', 'Teacher_Quality']].isnull().sum())
+```
+
+
+
+```{python}
+df['Parental_Education_Level']
+df['Distance_from_Home']
+df['Teacher_Quality']
+```
