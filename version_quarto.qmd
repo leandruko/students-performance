@@ -156,10 +156,10 @@ df['Teacher_Quality'].fillna(df['Teacher_Quality'].mean(), inplace=True)
 print(df[['Parental_Education_Level', 'Distance_from_Home', 'Teacher_Quality']].isnull().sum())
 ```
 
-
-
+## Preparacion de datos
+### Vamos a realizar el tratamiento de datos pasos a realizar
+### Convertir datos categoricos a numericos para esto vamos a aplicar one hot encoder y label conder dependiendo a tipo de dato que se trate
+### Ademas de convertir los datos categoricos en general para aplicar estos datos en modelos de machine learnign, ademas de verificar el balanceo de datos y aplicacion de tecnicas para corregir variables con outlayers
 ```{python}
-df['Parental_Education_Level']
-df['Distance_from_Home']
-df['Teacher_Quality']
+
 ```
