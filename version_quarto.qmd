@@ -163,6 +163,8 @@ print(df[['Parental_Education_Level', 'Distance_from_Home', 'Teacher_Quality']].
 ### Ademas de convertir los datos categoricos en general para aplicar estos datos en modelos de machine learnign, ademas de verificar el balanceo de datos y aplicacion de tecnicas para corregir variables con outlayers
 
 ## LabelEncoder
+
+
 ### Parental_Involvement, Access_to_Resources, Motivation_Level,Family_Income,Teacher_Quality,Peer_Influence
 ```{python}
 for column in df.columns:
@@ -175,11 +177,24 @@ for column in df.columns:
 
 ```{python}
 le = LabelEncoder()
-df['Parental_Education_Level'] = le.fit_transform(df['Parental_Education_Level'].astype(str))
+df['Parental_Involvement'] = le.fit_transform(df['Parental_Involvement'].astype(str))
+
+df['Access_to_Resources'] = le.fit_transform(df['Access_to_Resources'].astype(str))
+
+df['Motivation_Level'] = le.fit_transform(df['Motivation_Level'].astype(str))
+
+df['Family_Income'] = le.fit_transform(df['Family_Income'].astype(str))
+
+df['Teacher_Quality'] = le.fit_transform(df['Teacher_Quality'].astype(str))
+
+df['Peer_Influence'] = le.fit_transform(df['Peer_Influence'].astype(str))
+
+df
 
 ```
 
 ## OneHotEncoder
+
 ### Internet_Access, Extracurricular_Activities, School_Type, GenderLearning_Disabilities
 ```{python}
 
