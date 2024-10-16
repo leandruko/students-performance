@@ -247,14 +247,6 @@ correlation_matrix = df.corr()
 # Filtrar solo las correlaciones con la variable objetivo
 target_corr = correlation_matrix['Exam_Score'].sort_values(ascending=False)
 print("Correlación de cada variable con 'Exam_Score':\n", target_corr)
-
-plt.figure(figsize=(8, 5))
-sns.scatterplot(x='Hours_Studied', y='Exam_Score', data=df)
-plt.title('Relación entre Hours_Studied y Exam_Score')
-plt.xlabel('Horas de Estudio')
-plt.ylabel('Puntuación del Examen')
-plt.show()
-
 ```
 
 # Aplicacion de modelos de machine learning
@@ -308,5 +300,72 @@ print(results_df.sort_values(by="R^2", ascending=False))
 
 ```
 ```{python}
-df
+# Variables utilizadas
+print("Variables utilizadas en el modelo:")
+print(X.columns)
+
+```
+
+```{python}
+import numpy as np
+import pandas as pd
+from sklearn.model_selection import train_test_split
+from sklearn.linear_model import LinearRegression
+from sklearn.ensemble import RandomForestRegressor, StackingRegressor
+from sklearn.metrics import mean_absolute_error, mean_squared_error, r2_score
+
+# Separar las variables independientes y la variable objetivo
+X = df.drop(columns=['Exam_Score','Parental_Involvement','Access_to_Resources','Peer_Influence_0','Learning_Disabilities_Yes','Distance_from_Home',
+'Learning_Disabilities_No'
+,'Peer_Influence_2'
+,'Extracurricular_Activities_Yes'
+,'Internet_Access_Yes'
+,'Parental_Education_Level'
+,'Physical_Activity'
+,'School_Type_Private'
+,'Gender_Female'
+,'Gender_Male'
+,'Peer_Influence_1'
+,'School_Type_Public'
+,'Motivation_Level'
+,'Sleep_Hours'
+,'Family_Income'
+,'Internet_Access_No'
+,'Teacher_Quality'
+,'Extracurricular_Activities_No'])
+y = df['Exam_Score']
+
+# Dividir el conjunto de datos
+X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.25, random_state=42)
+
+# Definir los modelos base
+base_models = [
+    ('linear', LinearRegression()),
+    ('random_forest', RandomForestRegressor(n_estimators=100, random_state=42))
+]
+
+# Definir el modelo meta
+meta_model = LinearRegression()
+
+# Crear el Stacking Regressor
+stacking_model = StackingRegressor(estimators=base_models, final_estimator=meta_model)
+
+# Entrenar el modelo
+stacking_model.fit(X_train, y_train)
+
+# Hacer predicciones
+y_pred = stacking_model.predict(X_test)
+
+# Evaluar el modelo
+mae = mean_absolute_error(y_test, y_pred)
+rmse = np.sqrt(mean_squared_error(y_test, y_pred))
+r2 = r2_score(y_test, y_pred)
+
+# Mostrar resultados
+print("Resultados del Stacking Regressor")
+print(f"MAE: {mae:.4f}")
+print(f"RMSE: {rmse:.4f}")
+print(f"R^2: {r2:.4f}")
+
+
 ```
