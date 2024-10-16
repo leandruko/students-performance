@@ -126,7 +126,24 @@ for columna in columnas_categoricas:
 
 ```
 
-# Verificar si hay valores nulos en el dataset
+## Verificar si hay valores nulos en el dataset
+### Correccion de valores nulos presentes en el dataser
+```{python}
+print("\nValores nulos por columna:")
+print(df.isnull().sum())
+```
+```{python}
+# Lista de las columnas categóricas que deseas reemplazar por la moda
+categorical_columns = ['Parental_Education_Level', 'Distance_from_Home', 'Teacher_Quality']
+
+# Iterar sobre cada columna y reemplazar los valores nulos con la moda
+for column in categorical_columns:
+    mode_value = df[column].mode()[0]  # Obtener la moda (el valor más frecuente)
+    df[column].fillna(mode_value, inplace=True)
+    print(f"Valores nulos en '{column}' reemplazados por la moda: '{mode_value}'")
+
+```
+
 ```{python}
 print("\nValores nulos por columna:")
 print(df.isnull().sum())
@@ -147,20 +164,10 @@ for columna in columnas_numericas:
     generar_boxplot(df, columna)
 ```
 
-```{python}
-# Reemplazar los valores nulos por la media de cada columna
-df['Parental_Education_Level'].fillna(df['Parental_Education_Level'].mean(), inplace=True)
-df['Distance_from_Home'].fillna(df['Distance_from_Home'].mean(), inplace=True)
-df['Teacher_Quality'].fillna(df['Teacher_Quality'].mean(), inplace=True)
-
-# Verificar que no queden valores nulos en estas columnas
-print(df[['Parental_Education_Level', 'Distance_from_Home', 'Teacher_Quality']].isnull().sum())
-```
-
 ## Preparacion de datos
 ### Vamos a realizar el tratamiento de datos pasos a realizar
 ### Convertir datos categoricos a numericos para esto vamos a aplicar one hot encoder y label conder dependiendo a tipo de dato que se trate
-### Ademas de convertir los datos categoricos en general para aplicar estos datos en modelos de machine learnign, ademas de verificar el balanceo de datos y aplicacion de tecnicas para corregir variables con outlayers
+### Ademas de convertir los datos categoricos en general para aplicar estos datos en modelos de machine learning, ademas de verificar el balanceo de datos y aplicacion de tecnicas para corregir variables con outlayers
 
 ```{python}
 for column in df.columns:
@@ -186,9 +193,9 @@ df['Teacher_Quality'] = le.fit_transform(df['Teacher_Quality'].astype(str))
 
 df['Peer_Influence'] = le.fit_transform(df['Peer_Influence'].astype(str))
 
-df['Parental_Education_Level '] = le.fit_transform(df['Parental_Education_Level '].astype(str))
+df['Parental_Education_Level'] = le.fit_transform(df['Parental_Education_Level'].astype(str))
 
-df['Distance_from_Home '] = le.fit_transform(df['Distance_from_Home '].astype(str))
+df['Distance_from_Home'] = le.fit_transform(df['Distance_from_Home'].astype(str))
 
 df
 
@@ -200,15 +207,47 @@ df
 ```{python}
 # Aplicar One-Hot Encoding
 df = pd.get_dummies(df, columns=['Extracurricular_Activities'])
-
 df = pd.get_dummies(df, columns=['Internet_Access'])
-
 df = pd.get_dummies(df, columns=['School_Type'])
-
 df = pd.get_dummies(df, columns=['Peer_Influence'])
-
 df = pd.get_dummies(df, columns=['Learning_Disabilities'])
-
 df = pd.get_dummies(df, columns=['Gender'])
+
+```
+
+```{python}
+for column in df.columns:
+    unique_values = df[column].unique()
+    print(f"Valores únicos en la columna '{column}':")
+    print(unique_values)
+    print("\n------------------------------------\n")
+```
+
+
+```{python}
+# Calcular la matriz de correlación
+corr_matrix = df.corr()
+
+# Generar el mapa de calor
+plt.figure(figsize=(10, 8))
+sns.heatmap(corr_matrix, annot=True, cmap='coolwarm', vmin=-1, vmax=1)
+plt.title('Mapa de calor de la correlación entre variables')
+plt.show()
+```
+
+```{python}
+# Calcular la matriz de correlación
+correlation_matrix = df.corr()
+
+# Filtrar solo las correlaciones con la variable objetivo
+target_corr = correlation_matrix['Exam_Score'].sort_values(ascending=False)
+print("Correlación de cada variable con 'Exam_Score':\n", target_corr)
+
+plt.figure(figsize=(8, 5))
+sns.scatterplot(x='Hours_Studied', y='Exam_Score', data=df)
+plt.title('Relación entre Hours_Studied y Exam_Score')
+plt.xlabel('Horas de Estudio')
+plt.ylabel('Puntuación del Examen')
+plt.show()
 
 ```
