@@ -20,6 +20,11 @@ import pandas as pd
 import matplotlib.pyplot as plt
 import numpy as np
 import seaborn as sns
+from sklearn.model_selection import train_test_split
+from sklearn.linear_model import LinearRegression, Ridge, Lasso
+from sklearn.tree import DecisionTreeRegressor
+from sklearn.ensemble import RandomForestRegressor
+from sklearn.metrics import mean_absolute_error, mean_squared_error, r2_score
 from sklearn.preprocessing import LabelEncoder
 from sklearn.preprocessing import OneHotEncoder
 import warnings
@@ -250,4 +255,58 @@ plt.xlabel('Horas de Estudio')
 plt.ylabel('Puntuación del Examen')
 plt.show()
 
+```
+
+# Aplicacion de modelos de machine learning
+
+```{python}
+from sklearn.model_selection import train_test_split
+from sklearn.linear_model import LinearRegression, Ridge, Lasso
+from sklearn.tree import DecisionTreeRegressor
+from sklearn.ensemble import RandomForestRegressor
+from sklearn.metrics import mean_absolute_error, mean_squared_error, r2_score
+
+# Separar las características (X) y la variable objetivo (y)
+X = df.drop(columns=['Exam_Score'])  # Todas las columnas excepto la variable objetivo
+y = df['Exam_Score']  # La variable objetivo
+
+# Dividir el conjunto de datos en conjunto de entrenamiento y prueba
+X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.25, random_state=42)
+
+# Lista de modelos de regresión para evaluar
+models = {
+    "Regresión Lineal": LinearRegression(),
+    "Regresión Ridge": Ridge(alpha=1.0),
+    "Regresión Lasso": Lasso(alpha=0.1),
+    "Árbol de Decisión": DecisionTreeRegressor(random_state=42,),
+    "Random Forest": RandomForestRegressor(n_estimators=100, random_state=42)
+}
+results = []
+
+# Entrenar y evaluar cada modelo
+for model_name, model in models.items():
+    model.fit(X_train, y_train)
+    y_pred = model.predict(X_test)
+    
+    mae = mean_absolute_error(y_test, y_pred)
+    rmse = np.sqrt(mean_squared_error(y_test, y_pred))
+    r2 = r2_score(y_test, y_pred)
+    
+    # Almacenar los resultados
+    results.append({
+        "Modelo": model_name,
+        "MAE": mae,
+        "RMSE": rmse,
+        "R^2": r2
+    })
+
+# Convertir los resultados en un DataFrame
+results_df = pd.DataFrame(results)
+
+# Mostrar los resultados ordenados por R^2
+print(results_df.sort_values(by="R^2", ascending=False))
+
+```
+```{python}
+df
 ```
