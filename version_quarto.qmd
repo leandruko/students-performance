@@ -137,15 +137,19 @@ plt.show()
 ```
 
 ```{python}
-df['School_Type'].value_counts().plot.pie(autopct='%1.1f%%', startangle=90)
-plt.title('Proporción de Tipos de Escuela')
-plt.ylabel('')
+sns.boxplot(x='Parental_Involvement', y='Exam_Score', data=df)
+plt.title('Puntuación de Examen por Involucramiento Parental')
+plt.xlabel('Involucramiento Parental')
+plt.ylabel('Puntuación de Examen')
 plt.show()
 
-df['Gender'].value_counts().plot.pie(autopct='%1.1f%%', startangle=90)
-plt.title('Proporción de Tipos de Escuela')
-plt.ylabel('')
+
+sns.countplot(x='Parental_Involvement', data=df)
+plt.title('Frecuencia de Involucramiento Parental')
+plt.xlabel('Involucramiento Parental')
+plt.ylabel('Frecuencia')
 plt.show()
+
 
 ```
 
