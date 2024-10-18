@@ -95,11 +95,6 @@ for columna in columnas_cuantitativas:
 ## Análisis de datos cualitativos
 
 ```{python}
-
-import pandas as pd
-import matplotlib.pyplot as plt
-import seaborn as sns
-
 # Función para el análisis univariado de variables categóricas
 def analizar_variable_categorica(df, columna):
     values_counts = df[columna].value_counts()
@@ -130,6 +125,21 @@ for columna in columnas_categoricas:
     analizar_variable_categorica(df, columna)
 
 ```
+
+## Verificar si hay patrones o relaciones presentes entre variables
+```{python}
+
+# Gráfico de barras para comparar la media de 'Exam_Score' por 'Parental_Involvement'
+plt.figure(figsize=(8, 5))
+sns.barplot(x='Parental_Involvement', y='Exam_Score', data=df, palette='Set2')
+plt.title('Promedio de Puntuación de Examen por Involucramiento Parental')
+plt.xlabel('Involucramiento Parental')
+plt.ylabel('Promedio de Exam Score')
+plt.xticks(rotation=45)
+plt.show()
+
+```
+
 
 ## Verificar si hay valores nulos en el dataset
 ### Correccion de valores nulos presentes en el dataser
@@ -349,8 +359,4 @@ print("Resultados del Stacking Regressor")
 print(f"MAE: {mae:.4f}")
 print(f"RMSE: {rmse:.4f}")
 print(f"R^2: {r2:.4f}")
-
-
 ```
-
-# 
