@@ -128,18 +128,26 @@ for columna in columnas_categoricas:
 
 ## Verificar si hay patrones o relaciones presentes entre variables
 ```{python}
-
-# Gráfico de barras para comparar la media de 'Exam_Score' por 'Parental_Involvement'
-plt.figure(figsize=(8, 5))
-sns.barplot(x='Parental_Involvement', y='Exam_Score', data=df, palette='Set2')
-plt.title('Promedio de Puntuación de Examen por Involucramiento Parental')
-plt.xlabel('Involucramiento Parental')
-plt.ylabel('Promedio de Exam Score')
-plt.xticks(rotation=45)
+sns.scatterplot(x='Hours_Studied', y='Exam_Score', data=df)
+plt.title('Relación entre Horas de Estudio y Puntuación de Examen')
+plt.xlabel('Horas de Estudio')
+plt.ylabel('Puntuación de Examen')
 plt.show()
 
 ```
 
+```{python}
+df['School_Type'].value_counts().plot.pie(autopct='%1.1f%%', startangle=90)
+plt.title('Proporción de Tipos de Escuela')
+plt.ylabel('')
+plt.show()
+
+df['Gender'].value_counts().plot.pie(autopct='%1.1f%%', startangle=90)
+plt.title('Proporción de Tipos de Escuela')
+plt.ylabel('')
+plt.show()
+
+```
 
 ## Verificar si hay valores nulos en el dataset
 ### Correccion de valores nulos presentes en el dataser
