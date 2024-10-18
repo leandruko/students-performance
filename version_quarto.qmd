@@ -137,20 +137,11 @@ plt.show()
 ```
 
 ```{python}
-sns.boxplot(x='Parental_Involvement', y='Exam_Score', data=df)
-plt.title('Puntuación de Examen por Involucramiento Parental')
-plt.xlabel('Involucramiento Parental')
+sns.scatterplot(x='Attendance', y='Exam_Score', data=df)
+plt.title('Relación entre Horas de Estudio y Puntuación de Examen')
+plt.xlabel('Horas de Estudio')
 plt.ylabel('Puntuación de Examen')
 plt.show()
-
-
-sns.countplot(x='Parental_Involvement', data=df)
-plt.title('Frecuencia de Involucramiento Parental')
-plt.xlabel('Involucramiento Parental')
-plt.ylabel('Frecuencia')
-plt.show()
-
-
 ```
 
 ## Verificar si hay valores nulos en el dataset
