@@ -150,11 +150,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <section id="definir-problema" class="level2">
 <h2 class="anchored" data-anchor-id="definir-problema">1. Definir problema</h2>
-<p>En este proyecto, analizaremos un conjunto de datos de rendiemiento de estudiantes</p>
+<ul>
+<li>En este proyecto, analizaremos un conjunto de datos de rendimiento de estudiantes con el objetivo de predecir el puntaje del examen de los estudiantes para generar un impacto en el rendimiento de los alumnos en el caso de que su rendimiento en los exámenes sea mejor compartiendo insights para la mejora del rendimiento del estudiante y se reduzca la posibilidad de desaprobar el examen.</li>
+</ul>
 </section>
 <section id="recopilación-de-datos" class="level2">
 <h2 class="anchored" data-anchor-id="recopilación-de-datos">2. Recopilación de datos</h2>
-<div id="9bb24e59" class="cell" data-execution_count="1">
+<div id="1246f648" class="cell" data-execution_count="1">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Importación de librerías</span></span>
@@ -315,7 +317,7 @@ dtype: object</code></pre>
 </section>
 <section id="análisis-de-datos-cuantitativos" class="level2">
 <h2 class="anchored" data-anchor-id="análisis-de-datos-cuantitativos">Análisis de datos cuantitativos</h2>
-<div id="f7a1d27e" class="cell" data-execution_count="2">
+<div id="49c9c147" class="cell" data-execution_count="2">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
@@ -474,7 +476,7 @@ Valor Máximo: 101.00
 </section>
 <section id="análisis-de-datos-cualitativos" class="level2">
 <h2 class="anchored" data-anchor-id="análisis-de-datos-cualitativos">Análisis de datos cualitativos</h2>
-<div id="8ecb2513" class="cell" data-execution_count="3">
+<div id="6760fdbc" class="cell" data-execution_count="3">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Función para el análisis univariado de variables categóricas</span></span>
@@ -752,7 +754,7 @@ Moda (Categoría más frecuente): Male
 </section>
 <section id="verificar-si-hay-patrones-o-relaciones-presentes-entre-variables" class="level2">
 <h2 class="anchored" data-anchor-id="verificar-si-hay-patrones-o-relaciones-presentes-entre-variables">Verificar si hay patrones o relaciones presentes entre variables</h2>
-<div id="7586eb29" class="cell" data-execution_count="4">
+<div id="b1ca5fd4" class="cell" data-execution_count="4">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb25"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a>sns.scatterplot(x<span class="op">=</span><span class="st">'Hours_Studied'</span>, y<span class="op">=</span><span class="st">'Exam_Score'</span>, data<span class="op">=</span>df)</span>
@@ -769,30 +771,19 @@ Moda (Categoría más frecuente): Male
 </div>
 </div>
 </div>
-<div id="815b96d1" class="cell" data-execution_count="5">
+<div id="b3288a0f" class="cell" data-execution_count="5">
 <details class="code-fold">
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a>df[<span class="st">'School_Type'</span>].value_counts().plot.pie(autopct<span class="op">=</span><span class="st">'</span><span class="sc">%1.1f%%</span><span class="st">'</span>, startangle<span class="op">=</span><span class="dv">90</span>)</span>
-<span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">'Proporción de Tipos de Escuela'</span>)</span>
-<span id="cb26-3"><a href="#cb26-3" aria-hidden="true" tabindex="-1"></a>plt.ylabel(<span class="st">''</span>)</span>
-<span id="cb26-4"><a href="#cb26-4" aria-hidden="true" tabindex="-1"></a>plt.show()</span>
-<span id="cb26-5"><a href="#cb26-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb26-6"><a href="#cb26-6" aria-hidden="true" tabindex="-1"></a>df[<span class="st">'Gender'</span>].value_counts().plot.pie(autopct<span class="op">=</span><span class="st">'</span><span class="sc">%1.1f%%</span><span class="st">'</span>, startangle<span class="op">=</span><span class="dv">90</span>)</span>
-<span id="cb26-7"><a href="#cb26-7" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">'Proporción de Tipos de Escuela'</span>)</span>
-<span id="cb26-8"><a href="#cb26-8" aria-hidden="true" tabindex="-1"></a>plt.ylabel(<span class="st">''</span>)</span>
-<span id="cb26-9"><a href="#cb26-9" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a>sns.scatterplot(x<span class="op">=</span><span class="st">'Attendance'</span>, y<span class="op">=</span><span class="st">'Exam_Score'</span>, data<span class="op">=</span>df)</span>
+<span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">'Relación entre Horas de Estudio y Puntuación de Examen'</span>)</span>
+<span id="cb26-3"><a href="#cb26-3" aria-hidden="true" tabindex="-1"></a>plt.xlabel(<span class="st">'Horas de Estudio'</span>)</span>
+<span id="cb26-4"><a href="#cb26-4" aria-hidden="true" tabindex="-1"></a>plt.ylabel(<span class="st">'Puntuación de Examen'</span>)</span>
+<span id="cb26-5"><a href="#cb26-5" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="version_quarto_files/figure-html/cell-6-output-1.png" width="389" height="410" class="figure-img"></p>
-</figure>
-</div>
-</div>
-<div class="cell-output cell-output-display">
-<div>
-<figure class="figure">
-<p><img src="version_quarto_files/figure-html/cell-6-output-2.png" width="414" height="410" class="figure-img"></p>
+<p><img src="version_quarto_files/figure-html/cell-6-output-1.png" width="593" height="450" class="figure-img"></p>
 </figure>
 </div>
 </div>
@@ -802,7 +793,7 @@ Moda (Categoría más frecuente): Male
 <h2 class="anchored" data-anchor-id="verificar-si-hay-valores-nulos-en-el-dataset">Verificar si hay valores nulos en el dataset</h2>
 <section id="correccion-de-valores-nulos-presentes-en-el-dataser" class="level3">
 <h3 class="anchored" data-anchor-id="correccion-de-valores-nulos-presentes-en-el-dataser">Correccion de valores nulos presentes en el dataser</h3>
-<div id="b12a413b" class="cell" data-execution_count="6">
+<div id="f1611e99" class="cell" data-execution_count="6">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb27"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"</span><span class="ch">\n</span><span class="st">Valores nulos por columna:"</span>)</span>
@@ -834,7 +825,7 @@ Exam_Score                     0
 dtype: int64</code></pre>
 </div>
 </div>
-<div id="197a5098" class="cell" data-execution_count="7">
+<div id="d5f755db" class="cell" data-execution_count="7">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb29"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Lista de las columnas categóricas que deseas reemplazar por la moda</span></span>
@@ -852,105 +843,146 @@ Valores nulos en 'Distance_from_Home' reemplazados por la moda: 'Near'
 Valores nulos en 'Teacher_Quality' reemplazados por la moda: 'Medium'</code></pre>
 </div>
 </div>
-<div id="242a23b6" class="cell" data-execution_count="8">
-<details class="code-fold">
-<summary>Code</summary>
-<div class="sourceCode cell-code" id="cb31"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"</span><span class="ch">\n</span><span class="st">Valores nulos por columna:"</span>)</span>
-<span id="cb31-2"><a href="#cb31-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(df.isnull().<span class="bu">sum</span>())</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
-<div class="cell-output cell-output-stdout">
-<pre><code>
-Valores nulos por columna:
-Hours_Studied                 0
-Attendance                    0
-Parental_Involvement          0
-Access_to_Resources           0
-Extracurricular_Activities    0
-Sleep_Hours                   0
-Previous_Scores               0
-Motivation_Level              0
-Internet_Access               0
-Tutoring_Sessions             0
-Family_Income                 0
-Teacher_Quality               0
-School_Type                   0
-Peer_Influence                0
-Physical_Activity             0
-Learning_Disabilities         0
-Parental_Education_Level      0
-Distance_from_Home            0
-Gender                        0
-Exam_Score                    0
-dtype: int64</code></pre>
-</div>
-</div>
 </section>
 </section>
 <section id="verificar-si-hay-valores-atopicos" class="level1">
 <h1>Verificar si hay valores atopicos</h1>
-<div id="f2574c09" class="cell" data-execution_count="9">
+<div id="39ad4c52" class="cell" data-execution_count="8">
 <details class="code-fold">
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb33"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> generar_boxplot(df, columna):</span>
-<span id="cb33-2"><a href="#cb33-2" aria-hidden="true" tabindex="-1"></a>    plt.figure(figsize<span class="op">=</span>(<span class="dv">10</span>, <span class="dv">6</span>))</span>
-<span id="cb33-3"><a href="#cb33-3" aria-hidden="true" tabindex="-1"></a>    sns.boxplot(data<span class="op">=</span>df, x<span class="op">=</span>columna, palette<span class="op">=</span><span class="st">'Set2'</span>)</span>
-<span id="cb33-4"><a href="#cb33-4" aria-hidden="true" tabindex="-1"></a>    plt.title(<span class="ss">f'Boxplot de </span><span class="sc">{</span>columna<span class="sc">}</span><span class="ss">'</span>)</span>
-<span id="cb33-5"><a href="#cb33-5" aria-hidden="true" tabindex="-1"></a>    plt.xlabel(columna)</span>
-<span id="cb33-6"><a href="#cb33-6" aria-hidden="true" tabindex="-1"></a>    plt.show()</span>
-<span id="cb33-7"><a href="#cb33-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb33-8"><a href="#cb33-8" aria-hidden="true" tabindex="-1"></a><span class="co"># Aplicar la función a todas las columnas numéricas del dataframe</span></span>
-<span id="cb33-9"><a href="#cb33-9" aria-hidden="true" tabindex="-1"></a>columnas_numericas <span class="op">=</span> df.select_dtypes(include<span class="op">=</span>[<span class="st">'int64'</span>, <span class="st">'float64'</span>]).columns</span>
-<span id="cb33-10"><a href="#cb33-10" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> columna <span class="kw">in</span> columnas_numericas:</span>
-<span id="cb33-11"><a href="#cb33-11" aria-hidden="true" tabindex="-1"></a>    generar_boxplot(df, columna)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb31"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> generar_boxplot(df, columna):</span>
+<span id="cb31-2"><a href="#cb31-2" aria-hidden="true" tabindex="-1"></a>    plt.figure(figsize<span class="op">=</span>(<span class="dv">10</span>, <span class="dv">6</span>))</span>
+<span id="cb31-3"><a href="#cb31-3" aria-hidden="true" tabindex="-1"></a>    sns.boxplot(data<span class="op">=</span>df, x<span class="op">=</span>columna, palette<span class="op">=</span><span class="st">'Set2'</span>)</span>
+<span id="cb31-4"><a href="#cb31-4" aria-hidden="true" tabindex="-1"></a>    plt.title(<span class="ss">f'Boxplot de </span><span class="sc">{</span>columna<span class="sc">}</span><span class="ss">'</span>)</span>
+<span id="cb31-5"><a href="#cb31-5" aria-hidden="true" tabindex="-1"></a>    plt.xlabel(columna)</span>
+<span id="cb31-6"><a href="#cb31-6" aria-hidden="true" tabindex="-1"></a>    plt.show()</span>
+<span id="cb31-7"><a href="#cb31-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb31-8"><a href="#cb31-8" aria-hidden="true" tabindex="-1"></a><span class="co"># Aplicar la función a todas las columnas numéricas del dataframe</span></span>
+<span id="cb31-9"><a href="#cb31-9" aria-hidden="true" tabindex="-1"></a>columnas_numericas <span class="op">=</span> df.select_dtypes(include<span class="op">=</span>[<span class="st">'int64'</span>, <span class="st">'float64'</span>]).columns</span>
+<span id="cb31-10"><a href="#cb31-10" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> columna <span class="kw">in</span> columnas_numericas:</span>
+<span id="cb31-11"><a href="#cb31-11" aria-hidden="true" tabindex="-1"></a>    generar_boxplot(df, columna)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="version_quarto_files/figure-html/cell-10-output-1.png" width="768" height="523" class="figure-img"></p>
+<p><img src="version_quarto_files/figure-html/cell-9-output-1.png" width="768" height="523" class="figure-img"></p>
 </figure>
 </div>
 </div>
 <div class="cell-output cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="version_quarto_files/figure-html/cell-10-output-2.png" width="768" height="523" class="figure-img"></p>
+<p><img src="version_quarto_files/figure-html/cell-9-output-2.png" width="768" height="523" class="figure-img"></p>
 </figure>
 </div>
 </div>
 <div class="cell-output cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="version_quarto_files/figure-html/cell-10-output-3.png" width="768" height="523" class="figure-img"></p>
+<p><img src="version_quarto_files/figure-html/cell-9-output-3.png" width="768" height="523" class="figure-img"></p>
 </figure>
 </div>
 </div>
 <div class="cell-output cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="version_quarto_files/figure-html/cell-10-output-4.png" width="768" height="523" class="figure-img"></p>
+<p><img src="version_quarto_files/figure-html/cell-9-output-4.png" width="768" height="523" class="figure-img"></p>
 </figure>
 </div>
 </div>
 <div class="cell-output cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="version_quarto_files/figure-html/cell-10-output-5.png" width="768" height="523" class="figure-img"></p>
+<p><img src="version_quarto_files/figure-html/cell-9-output-5.png" width="768" height="523" class="figure-img"></p>
 </figure>
 </div>
 </div>
 <div class="cell-output cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="version_quarto_files/figure-html/cell-10-output-6.png" width="768" height="523" class="figure-img"></p>
+<p><img src="version_quarto_files/figure-html/cell-9-output-6.png" width="768" height="523" class="figure-img"></p>
 </figure>
 </div>
 </div>
 <div class="cell-output cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="version_quarto_files/figure-html/cell-10-output-7.png" width="768" height="523" class="figure-img"></p>
+<p><img src="version_quarto_files/figure-html/cell-9-output-7.png" width="768" height="523" class="figure-img"></p>
 </figure>
 </div>
+</div>
+</div>
+<ul>
+<li>Para el tratamiento de datos atipicos lo que vamos a realizar es la imputacion de ellos mediante el metodo intercuartilico, pero tambien vamos a dgenerar un dataset sin realizar ningun tratamiento de los datos outlayers presentes en el dataset para eralizar pruebas posterirmente en dla aplicacion de modelos de machine learning para ver cuanta diferencia hay entre ambos casos</li>
+</ul>
+<div id="f3fb1166" class="cell" data-execution_count="9">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb32"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a>df_clean <span class="op">=</span> df.copy()</span>
+<span id="cb32-2"><a href="#cb32-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb32-3"><a href="#cb32-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Iteramos sobre cada columna numérica en el DataFrame.</span></span>
+<span id="cb32-4"><a href="#cb32-4" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> col <span class="kw">in</span> df_clean.select_dtypes(include<span class="op">=</span>[<span class="st">'int64'</span>, <span class="st">'float64'</span>]).columns:</span>
+<span id="cb32-5"><a href="#cb32-5" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Calculamos el primer y tercer cuartil (Q1 y Q3)</span></span>
+<span id="cb32-6"><a href="#cb32-6" aria-hidden="true" tabindex="-1"></a>    Q1 <span class="op">=</span> df_clean[col].quantile(<span class="fl">0.25</span>)</span>
+<span id="cb32-7"><a href="#cb32-7" aria-hidden="true" tabindex="-1"></a>    Q3 <span class="op">=</span> df_clean[col].quantile(<span class="fl">0.75</span>)</span>
+<span id="cb32-8"><a href="#cb32-8" aria-hidden="true" tabindex="-1"></a>    IQR <span class="op">=</span> Q3 <span class="op">-</span> Q1  <span class="co"># Rango intercuartílico</span></span>
+<span id="cb32-9"><a href="#cb32-9" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb32-10"><a href="#cb32-10" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Definimos los límites inferior y superior</span></span>
+<span id="cb32-11"><a href="#cb32-11" aria-hidden="true" tabindex="-1"></a>    lower_limit <span class="op">=</span> Q1 <span class="op">-</span> <span class="fl">1.5</span> <span class="op">*</span> IQR</span>
+<span id="cb32-12"><a href="#cb32-12" aria-hidden="true" tabindex="-1"></a>    upper_limit <span class="op">=</span> Q3 <span class="op">+</span> <span class="fl">1.5</span> <span class="op">*</span> IQR</span>
+<span id="cb32-13"><a href="#cb32-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb32-14"><a href="#cb32-14" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Imputamos los valores atípicos por los límites correspondientes</span></span>
+<span id="cb32-15"><a href="#cb32-15" aria-hidden="true" tabindex="-1"></a>    df_clean[col] <span class="op">=</span> np.where(df_clean[col] <span class="op">&lt;</span> lower_limit, lower_limit, df_clean[col])</span>
+<span id="cb32-16"><a href="#cb32-16" aria-hidden="true" tabindex="-1"></a>    df_clean[col] <span class="op">=</span> np.where(df_clean[col] <span class="op">&gt;</span> upper_limit, upper_limit, df_clean[col])</span>
+<span id="cb32-17"><a href="#cb32-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb32-18"><a href="#cb32-18" aria-hidden="true" tabindex="-1"></a><span class="co"># Verificamos algunos valores antes y después de la limpieza</span></span>
+<span id="cb32-19"><a href="#cb32-19" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Datos antes de la limpieza:"</span>)</span>
+<span id="cb32-20"><a href="#cb32-20" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(df.describe())</span>
+<span id="cb32-21"><a href="#cb32-21" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"</span><span class="ch">\n</span><span class="st">Datos después de la limpieza:"</span>)</span>
+<span id="cb32-22"><a href="#cb32-22" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(df_clean.describe())</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>Datos antes de la limpieza:
+       Hours_Studied   Attendance  Sleep_Hours  Previous_Scores  \
+count    6607.000000  6607.000000   6607.00000      6607.000000   
+mean       19.975329    79.977448      7.02906        75.070531   
+std         5.990594    11.547475      1.46812        14.399784   
+min         1.000000    60.000000      4.00000        50.000000   
+25%        16.000000    70.000000      6.00000        63.000000   
+50%        20.000000    80.000000      7.00000        75.000000   
+75%        24.000000    90.000000      8.00000        88.000000   
+max        44.000000   100.000000     10.00000       100.000000   
+
+       Tutoring_Sessions  Physical_Activity   Exam_Score  
+count        6607.000000        6607.000000  6607.000000  
+mean            1.493719           2.967610    67.235659  
+std             1.230570           1.031231     3.890456  
+min             0.000000           0.000000    55.000000  
+25%             1.000000           2.000000    65.000000  
+50%             1.000000           3.000000    67.000000  
+75%             2.000000           4.000000    69.000000  
+max             8.000000           6.000000   101.000000  
+
+Datos después de la limpieza:
+       Hours_Studied   Attendance  Sleep_Hours  Previous_Scores  \
+count    6607.000000  6607.000000   6607.00000      6607.000000   
+mean       19.971848    79.977448      7.02906        75.070531   
+std         5.951016    11.547475      1.46812        14.399784   
+min         4.000000    60.000000      4.00000        50.000000   
+25%        16.000000    70.000000      6.00000        63.000000   
+50%        20.000000    80.000000      7.00000        75.000000   
+75%        24.000000    90.000000      8.00000        88.000000   
+max        36.000000   100.000000     10.00000       100.000000   
+
+       Tutoring_Sessions  Physical_Activity   Exam_Score  
+count        6607.000000        6607.000000  6607.000000  
+mean            1.436355           2.967610    67.127138  
+std             1.096018           1.031231     3.372908  
+min             0.000000           0.000000    59.000000  
+25%             1.000000           2.000000    65.000000  
+50%             1.000000           3.000000    67.000000  
+75%             2.000000           4.000000    69.000000  
+max             3.500000           6.000000    75.000000  </code></pre>
 </div>
 </div>
 <section id="preparacion-de-datos" class="level2">
@@ -963,7 +995,7 @@ dtype: int64</code></pre>
 </section>
 <section id="ademas-de-convertir-los-datos-categoricos-en-general-para-aplicar-estos-datos-en-modelos-de-machine-learning-ademas-de-verificar-el-balanceo-de-datos-y-aplicacion-de-tecnicas-para-corregir-variables-con-outlayers" class="level3">
 <h3 class="anchored" data-anchor-id="ademas-de-convertir-los-datos-categoricos-en-general-para-aplicar-estos-datos-en-modelos-de-machine-learning-ademas-de-verificar-el-balanceo-de-datos-y-aplicacion-de-tecnicas-para-corregir-variables-con-outlayers">Ademas de convertir los datos categoricos en general para aplicar estos datos en modelos de machine learning, ademas de verificar el balanceo de datos y aplicacion de tecnicas para corregir variables con outlayers</h3>
-<div id="ed331b34" class="cell" data-execution_count="10">
+<div id="3dda48b8" class="cell" data-execution_count="10">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb34"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> column <span class="kw">in</span> df.columns:</span>
@@ -1088,7 +1120,7 @@ Valores únicos en la columna 'Exam_Score':
 <h2 class="anchored" data-anchor-id="labelencoder">LabelEncoder</h2>
 <section id="parental_involvement-access_to_resources-motivation_levelfamily_incometeacher_qualitypeer_influence" class="level3">
 <h3 class="anchored" data-anchor-id="parental_involvement-access_to_resources-motivation_levelfamily_incometeacher_qualitypeer_influence">Parental_Involvement, Access_to_Resources, Motivation_Level,Family_Income,Teacher_Quality,Peer_Influence,</h3>
-<div id="551dfaa6" class="cell" data-execution_count="11">
+<div id="32ea024a" class="cell" data-execution_count="11">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb36"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a>le <span class="op">=</span> LabelEncoder()</span>
@@ -1110,7 +1142,7 @@ Valores únicos en la columna 'Exam_Score':
 <span id="cb36-17"><a href="#cb36-17" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb36-18"><a href="#cb36-18" aria-hidden="true" tabindex="-1"></a>df</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
-<div class="cell-output cell-output-display" data-execution_count="11">
+<div class="cell-output cell-output-display" data-execution_count="29">
 <div>
 
 
@@ -1407,7 +1439,7 @@ Valores únicos en la columna 'Exam_Score':
 <h2 class="anchored" data-anchor-id="onehotencoder">OneHotEncoder</h2>
 <section id="internet_access-extracurricular_activities-school_type-gender-peer_influence" class="level3">
 <h3 class="anchored" data-anchor-id="internet_access-extracurricular_activities-school_type-gender-peer_influence">Internet_Access, Extracurricular_Activities, School_Type, Gender, ,Peer_Influence</h3>
-<div id="df56a6c1" class="cell" data-execution_count="12">
+<div id="4411a947" class="cell" data-execution_count="12">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb37"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Aplicar One-Hot Encoding</span></span>
@@ -1419,7 +1451,7 @@ Valores únicos en la columna 'Exam_Score':
 <span id="cb37-7"><a href="#cb37-7" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> pd.get_dummies(df, columns<span class="op">=</span>[<span class="st">'Gender'</span>])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
-<div id="98988b7f" class="cell" data-execution_count="13">
+<div id="d73db9c8" class="cell" data-execution_count="13">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb38"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb38-1"><a href="#cb38-1" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> column <span class="kw">in</span> df.columns:</span>
@@ -1573,7 +1605,7 @@ Valores únicos en la columna 'Gender_Male':
 </code></pre>
 </div>
 </div>
-<div id="c3941e7f" class="cell" data-execution_count="14">
+<div id="7961164d" class="cell" data-execution_count="14">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb40"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb40-1"><a href="#cb40-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Calcular la matriz de correlación</span></span>
@@ -1593,7 +1625,7 @@ Valores únicos en la columna 'Gender_Male':
 </div>
 </div>
 </div>
-<div id="4b5f26c7" class="cell" data-execution_count="15">
+<div id="f39475c8" class="cell" data-execution_count="15">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb41"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb41-1"><a href="#cb41-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Calcular la matriz de correlación</span></span>
@@ -1640,7 +1672,7 @@ Name: Exam_Score, dtype: float64</code></pre>
 </section>
 <section id="aplicacion-de-modelos-de-machine-learning" class="level1">
 <h1>Aplicacion de modelos de machine learning</h1>
-<div id="52f54011" class="cell" data-execution_count="16">
+<div id="4440377d" class="cell" data-execution_count="16">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb43"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb43-1"><a href="#cb43-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.model_selection <span class="im">import</span> train_test_split</span>
@@ -1698,7 +1730,7 @@ Name: Exam_Score, dtype: float64</code></pre>
 3  Árbol de Decisión  1.819613  3.688704  0.001025</code></pre>
 </div>
 </div>
-<div id="026600a8" class="cell" data-execution_count="17">
+<div id="46da7afd" class="cell" data-execution_count="17">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb45"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb45-1"><a href="#cb45-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Variables utilizadas</span></span>
@@ -1720,7 +1752,7 @@ Index(['Hours_Studied', 'Attendance', 'Parental_Involvement',
       dtype='object')</code></pre>
 </div>
 </div>
-<div id="213f73bb" class="cell" data-execution_count="18">
+<div id="e06c80e4" class="cell" data-execution_count="18">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb47"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb47-1"><a href="#cb47-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
