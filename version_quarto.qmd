@@ -142,7 +142,7 @@ plt.show()
 ```
 
 ## Verificar si hay valores nulos en el dataset
-### Correccion de valores nulos presentes en el dataser
+### Corrección de valores nulos presentes en el dataset
 ```{python}
 print("\nValores nulos por columna:")
 print(df.isnull().sum())
@@ -159,7 +159,7 @@ for column in categorical_columns:
 
 ```
 
-# Verificar si hay valores atopicos
+# Verificar si hay valores atípicos
 ```{python}
 def generar_boxplot(df, columna):
     plt.figure(figsize=(10, 6))
@@ -174,8 +174,7 @@ for columna in columnas_numericas:
     generar_boxplot(df, columna)
 ```
 
-- Para el tratamiento de datos atipicos lo que vamos a realizar es la imputacion de ellos mediante el metodo intercuartilico, pero tambien vamos a dgenerar un dataset sin realizar ningun tratamiento de los datos outlayers presentes en el dataset para eralizar pruebas posterirmente en dla aplicacion de modelos de machine learning para ver cuanta diferencia hay entre ambos casos
-
+- Para el tratamiento de datos atípicos lo que vamos a realizar es la imputación de ellos mediante el método intercuartílico, pero también vamos a generar un dataset sin realizar ningún tratamiento de los datos outlayers presentes en el dataset para realizar pruebas posteriormente en la aplicación de modelos de machine learning para ver cuanta diferencia hay entre ambos casos.
 ```{python}
 
 df_clean = df.copy()
@@ -202,10 +201,10 @@ print("\nDatos después de la limpieza:")
 print(df_clean.describe())
 ```
 
-## Preparacion de datos
+## Preparación de datos
 ### Vamos a realizar el tratamiento de datos pasos a realizar
-### Convertir datos categoricos a numericos para esto vamos a aplicar one hot encoder y label conder dependiendo a tipo de dato que se trate
-### Ademas de convertir los datos categoricos en general para aplicar estos datos en modelos de machine learning, ademas de verificar el balanceo de datos y aplicacion de tecnicas para corregir variables con outlayers
+### Convertir datos categóricos a numéricos para esto vamos a aplicar one hot encoder y label conder dependiendo a tipo de dato
+### Además de convertir los datos categóricos en general para aplicar estos datos en modelos de machine learning, además de verificar el balanceo de datos y aplicación de técnicas para corregir variables con outlayers
 
 ```{python}
 for column in df.columns:
@@ -306,9 +305,9 @@ target_corr = correlation_matrix['Exam_Score'].sort_values(ascending=False)
 print("Correlación de cada variable con 'Exam_Score':\n", target_corr)
 ```
 
-# Aplicacion de modelos de machine learning
+# Aplicación de modelos de machine learning
 
-## Prediccion con datos atipicos
+## Predicción con datos atípicos
 
 ```{python}
 # Separar las características (X) y la variable objetivo (y)
@@ -399,7 +398,7 @@ print(f"R^2: {r2:.4f}")
 ```
 
 
-## Prediccion sin datos atipicos
+## Predicción sin datos atípicos
 ```{python}
 # Separar las características (X) y la variable objetivo (y)
 X = df_clean.drop(columns=['Exam_Score'])  # Todas las columnas excepto la variable objetivo
@@ -487,3 +486,60 @@ print(f"MAE: {mae:.4f}")
 print(f"RMSE: {rmse:.4f}")
 print(f"R^2: {r2:.4f}")
 ```
+
+## Comparación de métricas de modelos
+
+
+### Comparación de resultados:
+
+1. **Sin Datos Atípicos:**
+
+- Los modelos mejoran su desempeño cuando los datos atípicos han sido ajustados.
+
+Stacking Regressor tiene el mejor rendimiento con:
+
+MAE: 0.8760 (error promedio bajo)
+
+RMSE: 1.2578 (mejor precisión comparado con los otros modelos)
+
+R²: 0.8588 (explica el 85.88% de la variabilidad en la variable objetivo)
+
+  
+
+- Random Forest y Regresión Ridge/Lineal presentan un desempeño similar en términos de MAE y RMSE, pero están ligeramente por debajo del Stacking Regressor.
+
+- Regresión Lasso tiene un poco más de error en comparación con Ridge/Lineal.
+
+- Árbol de Decisión muestra un rendimiento inferior con un MAE de 1.5109 y un R² de 0.6025, lo cual indica que no es tan eficaz en capturar la relación entre las variables.
+
+  
+
+2. **Con Datos Atípicos:**
+
+- Los modelos se ven significativamente afectados por la presencia de outliers.
+
+Stacking Regressor sigue siendo el mejor modelo en este caso, pero sus métricas son peores:
+
+MAE: 0.9709
+
+RMSE: 1.9767
+
+R²: 0.7131 (una caída considerable comparada con el caso sin outliers, indicando que el modelo explica menos la variabilidad de la variable objetivo).
+
+- Regresión Ridge/Lineal tienen un MAE de aproximadamente 1.008 y un RMSE de 2.016, indicando que los errores son mayores y su capacidad para predecir disminuye.
+
+- Random Forest y Lasso también ven una degradación en su rendimiento.
+
+- Árbol de Decisión se ve severamente afectado, con un R² cercano a 0, lo que sugiere que apenas explica la variabilidad de la variable objetivo.
+
+  
+
+### Conclusiones:
+
+- Impacto de los Outliers: Los datos atípicos tienden a distorsionar las predicciones de los modelos, especialmente aquellos que no son robustos a valores extremos, como los árboles de decisión. Esto resulta en una mayor imprecisión (valores de MAE y RMSE más altos) y una menor capacidad de explicación (valores de R² más bajos).
+
+- Importancia del Preprocesamiento: Ajustar los outliers ha mejorado el rendimiento de todos los modelos, especialmente del Stacking Regressor. Esto sugiere que los datos limpios permiten a los modelos captar mejor las relaciones entre las variables.
+
+- Mejor Modelo: El Stacking Regressor es claramente superior en ambos casos, pero su desempeño mejora significativamente sin outliers. Este modelo combina la fortaleza de varios algoritmos, lo que le da una ventaja en precisión y estabilidad.
+
+- Ridge y Regresión Lineal: Son bastante estables y, aunque no son tan buenos como el Stacking Regressor, funcionan bien al ajustar los outliers.

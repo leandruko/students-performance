@@ -89,15 +89,15 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#verificar-si-hay-patrones-o-relaciones-presentes-entre-variables" id="toc-verificar-si-hay-patrones-o-relaciones-presentes-entre-variables" class="nav-link" data-scroll-target="#verificar-si-hay-patrones-o-relaciones-presentes-entre-variables">Verificar si hay patrones o relaciones presentes entre variables</a></li>
   <li><a href="#verificar-si-hay-valores-nulos-en-el-dataset" id="toc-verificar-si-hay-valores-nulos-en-el-dataset" class="nav-link" data-scroll-target="#verificar-si-hay-valores-nulos-en-el-dataset">Verificar si hay valores nulos en el dataset</a>
   <ul class="collapse">
-  <li><a href="#correccion-de-valores-nulos-presentes-en-el-dataser" id="toc-correccion-de-valores-nulos-presentes-en-el-dataser" class="nav-link" data-scroll-target="#correccion-de-valores-nulos-presentes-en-el-dataser">Correccion de valores nulos presentes en el dataser</a></li>
+  <li><a href="#corrección-de-valores-nulos-presentes-en-el-dataset" id="toc-corrección-de-valores-nulos-presentes-en-el-dataset" class="nav-link" data-scroll-target="#corrección-de-valores-nulos-presentes-en-el-dataset">Corrección de valores nulos presentes en el dataset</a></li>
   </ul></li>
-  <li><a href="#verificar-si-hay-valores-atopicos" id="toc-verificar-si-hay-valores-atopicos" class="nav-link" data-scroll-target="#verificar-si-hay-valores-atopicos">Verificar si hay valores atopicos</a>
+  <li><a href="#verificar-si-hay-valores-atípicos" id="toc-verificar-si-hay-valores-atípicos" class="nav-link" data-scroll-target="#verificar-si-hay-valores-atípicos">Verificar si hay valores atípicos</a>
   <ul class="collapse">
-  <li><a href="#preparacion-de-datos" id="toc-preparacion-de-datos" class="nav-link" data-scroll-target="#preparacion-de-datos">Preparacion de datos</a>
+  <li><a href="#preparación-de-datos" id="toc-preparación-de-datos" class="nav-link" data-scroll-target="#preparación-de-datos">Preparación de datos</a>
   <ul class="collapse">
   <li><a href="#vamos-a-realizar-el-tratamiento-de-datos-pasos-a-realizar" id="toc-vamos-a-realizar-el-tratamiento-de-datos-pasos-a-realizar" class="nav-link" data-scroll-target="#vamos-a-realizar-el-tratamiento-de-datos-pasos-a-realizar">Vamos a realizar el tratamiento de datos pasos a realizar</a></li>
-  <li><a href="#convertir-datos-categoricos-a-numericos-para-esto-vamos-a-aplicar-one-hot-encoder-y-label-conder-dependiendo-a-tipo-de-dato-que-se-trate" id="toc-convertir-datos-categoricos-a-numericos-para-esto-vamos-a-aplicar-one-hot-encoder-y-label-conder-dependiendo-a-tipo-de-dato-que-se-trate" class="nav-link" data-scroll-target="#convertir-datos-categoricos-a-numericos-para-esto-vamos-a-aplicar-one-hot-encoder-y-label-conder-dependiendo-a-tipo-de-dato-que-se-trate">Convertir datos categoricos a numericos para esto vamos a aplicar one hot encoder y label conder dependiendo a tipo de dato que se trate</a></li>
-  <li><a href="#ademas-de-convertir-los-datos-categoricos-en-general-para-aplicar-estos-datos-en-modelos-de-machine-learning-ademas-de-verificar-el-balanceo-de-datos-y-aplicacion-de-tecnicas-para-corregir-variables-con-outlayers" id="toc-ademas-de-convertir-los-datos-categoricos-en-general-para-aplicar-estos-datos-en-modelos-de-machine-learning-ademas-de-verificar-el-balanceo-de-datos-y-aplicacion-de-tecnicas-para-corregir-variables-con-outlayers" class="nav-link" data-scroll-target="#ademas-de-convertir-los-datos-categoricos-en-general-para-aplicar-estos-datos-en-modelos-de-machine-learning-ademas-de-verificar-el-balanceo-de-datos-y-aplicacion-de-tecnicas-para-corregir-variables-con-outlayers">Ademas de convertir los datos categoricos en general para aplicar estos datos en modelos de machine learning, ademas de verificar el balanceo de datos y aplicacion de tecnicas para corregir variables con outlayers</a></li>
+  <li><a href="#convertir-datos-categóricos-a-numéricos-para-esto-vamos-a-aplicar-one-hot-encoder-y-label-conder-dependiendo-a-tipo-de-dato" id="toc-convertir-datos-categóricos-a-numéricos-para-esto-vamos-a-aplicar-one-hot-encoder-y-label-conder-dependiendo-a-tipo-de-dato" class="nav-link" data-scroll-target="#convertir-datos-categóricos-a-numéricos-para-esto-vamos-a-aplicar-one-hot-encoder-y-label-conder-dependiendo-a-tipo-de-dato">Convertir datos categóricos a numéricos para esto vamos a aplicar one hot encoder y label conder dependiendo a tipo de dato</a></li>
+  <li><a href="#además-de-convertir-los-datos-categóricos-en-general-para-aplicar-estos-datos-en-modelos-de-machine-learning-además-de-verificar-el-balanceo-de-datos-y-aplicación-de-técnicas-para-corregir-variables-con-outlayers" id="toc-además-de-convertir-los-datos-categóricos-en-general-para-aplicar-estos-datos-en-modelos-de-machine-learning-además-de-verificar-el-balanceo-de-datos-y-aplicación-de-técnicas-para-corregir-variables-con-outlayers" class="nav-link" data-scroll-target="#además-de-convertir-los-datos-categóricos-en-general-para-aplicar-estos-datos-en-modelos-de-machine-learning-además-de-verificar-el-balanceo-de-datos-y-aplicación-de-técnicas-para-corregir-variables-con-outlayers">Además de convertir los datos categóricos en general para aplicar estos datos en modelos de machine learning, además de verificar el balanceo de datos y aplicación de técnicas para corregir variables con outlayers</a></li>
   </ul></li>
   <li><a href="#labelencoder" id="toc-labelencoder" class="nav-link" data-scroll-target="#labelencoder">LabelEncoder</a>
   <ul class="collapse">
@@ -108,10 +108,15 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#internet_access-extracurricular_activities-school_type-gender-peer_influence" id="toc-internet_access-extracurricular_activities-school_type-gender-peer_influence" class="nav-link" data-scroll-target="#internet_access-extracurricular_activities-school_type-gender-peer_influence">Internet_Access, Extracurricular_Activities, School_Type, Gender, ,Peer_Influence</a></li>
   </ul></li>
   </ul></li>
-  <li><a href="#aplicacion-de-modelos-de-machine-learning" id="toc-aplicacion-de-modelos-de-machine-learning" class="nav-link" data-scroll-target="#aplicacion-de-modelos-de-machine-learning">Aplicacion de modelos de machine learning</a>
+  <li><a href="#aplicación-de-modelos-de-machine-learning" id="toc-aplicación-de-modelos-de-machine-learning" class="nav-link" data-scroll-target="#aplicación-de-modelos-de-machine-learning">Aplicación de modelos de machine learning</a>
   <ul class="collapse">
-  <li><a href="#prediccion-con-datos-atipicos" id="toc-prediccion-con-datos-atipicos" class="nav-link" data-scroll-target="#prediccion-con-datos-atipicos">Prediccion con datos atipicos</a></li>
-  <li><a href="#prediccion-sin-datos-atipicos" id="toc-prediccion-sin-datos-atipicos" class="nav-link" data-scroll-target="#prediccion-sin-datos-atipicos">Prediccion sin datos atipicos</a></li>
+  <li><a href="#predicción-con-datos-atípicos" id="toc-predicción-con-datos-atípicos" class="nav-link" data-scroll-target="#predicción-con-datos-atípicos">Predicción con datos atípicos</a></li>
+  <li><a href="#predicción-sin-datos-atípicos" id="toc-predicción-sin-datos-atípicos" class="nav-link" data-scroll-target="#predicción-sin-datos-atípicos">Predicción sin datos atípicos</a></li>
+  <li><a href="#comparación-de-métricas-de-modelos" id="toc-comparación-de-métricas-de-modelos" class="nav-link" data-scroll-target="#comparación-de-métricas-de-modelos">Comparación de métricas de modelos</a>
+  <ul class="collapse">
+  <li><a href="#comparación-de-resultados" id="toc-comparación-de-resultados" class="nav-link" data-scroll-target="#comparación-de-resultados">Comparación de resultados:</a></li>
+  <li><a href="#conclusiones" id="toc-conclusiones" class="nav-link" data-scroll-target="#conclusiones">Conclusiones:</a></li>
+  </ul></li>
   </ul></li>
   </ul>
 </nav>
@@ -157,7 +162,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="recopilación-de-datos" class="level2">
 <h2 class="anchored" data-anchor-id="recopilación-de-datos">2. Recopilación de datos</h2>
-<div id="482bbc08" class="cell" data-execution_count="1">
+<div id="0f00b199" class="cell" data-execution_count="1">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Importación de librerías</span></span>
@@ -319,7 +324,7 @@ dtype: object</code></pre>
 </section>
 <section id="análisis-de-datos-cuantitativos" class="level2">
 <h2 class="anchored" data-anchor-id="análisis-de-datos-cuantitativos">Análisis de datos cuantitativos</h2>
-<div id="7c305208" class="cell" data-execution_count="2">
+<div id="ff27dd4f" class="cell" data-execution_count="2">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Función para el análisis univariado de variables cuantitativas</span></span>
@@ -474,7 +479,7 @@ Valor Máximo: 101.00
 </section>
 <section id="análisis-de-datos-cualitativos" class="level2">
 <h2 class="anchored" data-anchor-id="análisis-de-datos-cualitativos">Análisis de datos cualitativos</h2>
-<div id="4e86614a" class="cell" data-execution_count="3">
+<div id="cccc7df4" class="cell" data-execution_count="3">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Función para el análisis univariado de variables categóricas</span></span>
@@ -752,7 +757,7 @@ Moda (Categoría más frecuente): Male
 </section>
 <section id="verificar-si-hay-patrones-o-relaciones-presentes-entre-variables" class="level2">
 <h2 class="anchored" data-anchor-id="verificar-si-hay-patrones-o-relaciones-presentes-entre-variables">Verificar si hay patrones o relaciones presentes entre variables</h2>
-<div id="019b0e64" class="cell" data-execution_count="4">
+<div id="a7f41ef8" class="cell" data-execution_count="4">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb25"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a>sns.scatterplot(x<span class="op">=</span><span class="st">'Hours_Studied'</span>, y<span class="op">=</span><span class="st">'Exam_Score'</span>, data<span class="op">=</span>df)</span>
@@ -769,7 +774,7 @@ Moda (Categoría más frecuente): Male
 </div>
 </div>
 </div>
-<div id="27beaac3" class="cell" data-execution_count="5">
+<div id="6a42ab76" class="cell" data-execution_count="5">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb26"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a>sns.scatterplot(x<span class="op">=</span><span class="st">'Attendance'</span>, y<span class="op">=</span><span class="st">'Exam_Score'</span>, data<span class="op">=</span>df)</span>
@@ -789,9 +794,9 @@ Moda (Categoría más frecuente): Male
 </section>
 <section id="verificar-si-hay-valores-nulos-en-el-dataset" class="level2">
 <h2 class="anchored" data-anchor-id="verificar-si-hay-valores-nulos-en-el-dataset">Verificar si hay valores nulos en el dataset</h2>
-<section id="correccion-de-valores-nulos-presentes-en-el-dataser" class="level3">
-<h3 class="anchored" data-anchor-id="correccion-de-valores-nulos-presentes-en-el-dataser">Correccion de valores nulos presentes en el dataser</h3>
-<div id="035d1658" class="cell" data-execution_count="6">
+<section id="corrección-de-valores-nulos-presentes-en-el-dataset" class="level3">
+<h3 class="anchored" data-anchor-id="corrección-de-valores-nulos-presentes-en-el-dataset">Corrección de valores nulos presentes en el dataset</h3>
+<div id="6dc5d686" class="cell" data-execution_count="6">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb27"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"</span><span class="ch">\n</span><span class="st">Valores nulos por columna:"</span>)</span>
@@ -823,7 +828,7 @@ Exam_Score                     0
 dtype: int64</code></pre>
 </div>
 </div>
-<div id="82e24bf4" class="cell" data-execution_count="7">
+<div id="aaced5c4" class="cell" data-execution_count="7">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb29"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Lista de las columnas categóricas que deseas reemplazar por la moda</span></span>
@@ -843,9 +848,9 @@ Valores nulos en 'Teacher_Quality' reemplazados por la moda: 'Medium'</code></pr
 </div>
 </section>
 </section>
-<section id="verificar-si-hay-valores-atopicos" class="level1">
-<h1>Verificar si hay valores atopicos</h1>
-<div id="a87bb80a" class="cell" data-execution_count="8">
+<section id="verificar-si-hay-valores-atípicos" class="level1">
+<h1>Verificar si hay valores atípicos</h1>
+<div id="d71f7aad" class="cell" data-execution_count="8">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb31"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> generar_boxplot(df, columna):</span>
@@ -911,9 +916,9 @@ Valores nulos en 'Teacher_Quality' reemplazados por la moda: 'Medium'</code></pr
 </div>
 </div>
 <ul>
-<li>Para el tratamiento de datos atipicos lo que vamos a realizar es la imputacion de ellos mediante el metodo intercuartilico, pero tambien vamos a dgenerar un dataset sin realizar ningun tratamiento de los datos outlayers presentes en el dataset para eralizar pruebas posterirmente en dla aplicacion de modelos de machine learning para ver cuanta diferencia hay entre ambos casos</li>
+<li>Para el tratamiento de datos atípicos lo que vamos a realizar es la imputación de ellos mediante el método intercuartílico, pero también vamos a generar un dataset sin realizar ningún tratamiento de los datos outlayers presentes en el dataset para realizar pruebas posteriormente en la aplicación de modelos de machine learning para ver cuanta diferencia hay entre ambos casos.</li>
 </ul>
-<div id="50f39f65" class="cell" data-execution_count="9">
+<div id="a34d1fe7" class="cell" data-execution_count="9">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb32"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a>df_clean <span class="op">=</span> df.copy()</span>
@@ -983,17 +988,17 @@ min             0.000000           0.000000    59.000000
 max             3.500000           6.000000    75.000000  </code></pre>
 </div>
 </div>
-<section id="preparacion-de-datos" class="level2">
-<h2 class="anchored" data-anchor-id="preparacion-de-datos">Preparacion de datos</h2>
+<section id="preparación-de-datos" class="level2">
+<h2 class="anchored" data-anchor-id="preparación-de-datos">Preparación de datos</h2>
 <section id="vamos-a-realizar-el-tratamiento-de-datos-pasos-a-realizar" class="level3">
 <h3 class="anchored" data-anchor-id="vamos-a-realizar-el-tratamiento-de-datos-pasos-a-realizar">Vamos a realizar el tratamiento de datos pasos a realizar</h3>
 </section>
-<section id="convertir-datos-categoricos-a-numericos-para-esto-vamos-a-aplicar-one-hot-encoder-y-label-conder-dependiendo-a-tipo-de-dato-que-se-trate" class="level3">
-<h3 class="anchored" data-anchor-id="convertir-datos-categoricos-a-numericos-para-esto-vamos-a-aplicar-one-hot-encoder-y-label-conder-dependiendo-a-tipo-de-dato-que-se-trate">Convertir datos categoricos a numericos para esto vamos a aplicar one hot encoder y label conder dependiendo a tipo de dato que se trate</h3>
+<section id="convertir-datos-categóricos-a-numéricos-para-esto-vamos-a-aplicar-one-hot-encoder-y-label-conder-dependiendo-a-tipo-de-dato" class="level3">
+<h3 class="anchored" data-anchor-id="convertir-datos-categóricos-a-numéricos-para-esto-vamos-a-aplicar-one-hot-encoder-y-label-conder-dependiendo-a-tipo-de-dato">Convertir datos categóricos a numéricos para esto vamos a aplicar one hot encoder y label conder dependiendo a tipo de dato</h3>
 </section>
-<section id="ademas-de-convertir-los-datos-categoricos-en-general-para-aplicar-estos-datos-en-modelos-de-machine-learning-ademas-de-verificar-el-balanceo-de-datos-y-aplicacion-de-tecnicas-para-corregir-variables-con-outlayers" class="level3">
-<h3 class="anchored" data-anchor-id="ademas-de-convertir-los-datos-categoricos-en-general-para-aplicar-estos-datos-en-modelos-de-machine-learning-ademas-de-verificar-el-balanceo-de-datos-y-aplicacion-de-tecnicas-para-corregir-variables-con-outlayers">Ademas de convertir los datos categoricos en general para aplicar estos datos en modelos de machine learning, ademas de verificar el balanceo de datos y aplicacion de tecnicas para corregir variables con outlayers</h3>
-<div id="0f901356" class="cell" data-execution_count="10">
+<section id="además-de-convertir-los-datos-categóricos-en-general-para-aplicar-estos-datos-en-modelos-de-machine-learning-además-de-verificar-el-balanceo-de-datos-y-aplicación-de-técnicas-para-corregir-variables-con-outlayers" class="level3">
+<h3 class="anchored" data-anchor-id="además-de-convertir-los-datos-categóricos-en-general-para-aplicar-estos-datos-en-modelos-de-machine-learning-además-de-verificar-el-balanceo-de-datos-y-aplicación-de-técnicas-para-corregir-variables-con-outlayers">Además de convertir los datos categóricos en general para aplicar estos datos en modelos de machine learning, además de verificar el balanceo de datos y aplicación de técnicas para corregir variables con outlayers</h3>
+<div id="5a563996" class="cell" data-execution_count="10">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb34"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> column <span class="kw">in</span> df.columns:</span>
@@ -1118,7 +1123,7 @@ Valores únicos en la columna 'Exam_Score':
 <h2 class="anchored" data-anchor-id="labelencoder">LabelEncoder</h2>
 <section id="parental_involvement-access_to_resources-motivation_levelfamily_incometeacher_qualitypeer_influence" class="level3">
 <h3 class="anchored" data-anchor-id="parental_involvement-access_to_resources-motivation_levelfamily_incometeacher_qualitypeer_influence">Parental_Involvement, Access_to_Resources, Motivation_Level,Family_Income,Teacher_Quality,Peer_Influence,</h3>
-<div id="752aab67" class="cell" data-execution_count="11">
+<div id="3c6622f2" class="cell" data-execution_count="11">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb36"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a>le <span class="op">=</span> LabelEncoder()</span>
@@ -1163,7 +1168,7 @@ Valores únicos en la columna 'Exam_Score':
 <h2 class="anchored" data-anchor-id="onehotencoder">OneHotEncoder</h2>
 <section id="internet_access-extracurricular_activities-school_type-gender-peer_influence" class="level3">
 <h3 class="anchored" data-anchor-id="internet_access-extracurricular_activities-school_type-gender-peer_influence">Internet_Access, Extracurricular_Activities, School_Type, Gender, ,Peer_Influence</h3>
-<div id="5d7e5138" class="cell" data-execution_count="12">
+<div id="85f70d87" class="cell" data-execution_count="12">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb37"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Aplicar One-Hot Encoding</span></span>
@@ -1184,7 +1189,7 @@ Valores únicos en la columna 'Exam_Score':
 <span id="cb37-16"><a href="#cb37-16" aria-hidden="true" tabindex="-1"></a>df_clean <span class="op">=</span> pd.get_dummies(df_clean, columns<span class="op">=</span>[<span class="st">'Gender'</span>])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
-<div id="5787d8c8" class="cell" data-execution_count="13">
+<div id="7bbb4e93" class="cell" data-execution_count="13">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb38"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb38-1"><a href="#cb38-1" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> column <span class="kw">in</span> df.columns:</span>
@@ -1338,7 +1343,7 @@ Valores únicos en la columna 'Gender_Male':
 </code></pre>
 </div>
 </div>
-<div id="1c9d0bb4" class="cell" data-execution_count="14">
+<div id="e5d7d81b" class="cell" data-execution_count="14">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb40"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb40-1"><a href="#cb40-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Calcular la matriz de correlación</span></span>
@@ -1358,7 +1363,7 @@ Valores únicos en la columna 'Gender_Male':
 </div>
 </div>
 </div>
-<div id="606e9432" class="cell" data-execution_count="15">
+<div id="2ec0f37e" class="cell" data-execution_count="15">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb41"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb41-1"><a href="#cb41-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Calcular la matriz de correlación</span></span>
@@ -1403,11 +1408,11 @@ Name: Exam_Score, dtype: float64</code></pre>
 </section>
 </section>
 </section>
-<section id="aplicacion-de-modelos-de-machine-learning" class="level1">
-<h1>Aplicacion de modelos de machine learning</h1>
-<section id="prediccion-con-datos-atipicos" class="level2">
-<h2 class="anchored" data-anchor-id="prediccion-con-datos-atipicos">Prediccion con datos atipicos</h2>
-<div id="325cae4d" class="cell" data-execution_count="16">
+<section id="aplicación-de-modelos-de-machine-learning" class="level1">
+<h1>Aplicación de modelos de machine learning</h1>
+<section id="predicción-con-datos-atípicos" class="level2">
+<h2 class="anchored" data-anchor-id="predicción-con-datos-atípicos">Predicción con datos atípicos</h2>
+<div id="be7b00a9" class="cell" data-execution_count="16">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb43"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb43-1"><a href="#cb43-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Separar las características (X) y la variable objetivo (y)</span></span>
@@ -1459,7 +1464,7 @@ Name: Exam_Score, dtype: float64</code></pre>
 3  Árbol de Decisión  1.819613  3.688704  0.001025</code></pre>
 </div>
 </div>
-<div id="87abc3b8" class="cell" data-execution_count="17">
+<div id="d2dc3a53" class="cell" data-execution_count="17">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb45"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb45-1"><a href="#cb45-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Variables utilizadas</span></span>
@@ -1481,7 +1486,7 @@ Index(['Hours_Studied', 'Attendance', 'Parental_Involvement',
       dtype='object')</code></pre>
 </div>
 </div>
-<div id="68c90347" class="cell" data-execution_count="18">
+<div id="441056da" class="cell" data-execution_count="18">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb47"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb47-1"><a href="#cb47-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Separar las variables independientes y la variable objetivo</span></span>
@@ -1528,9 +1533,9 @@ R^2: 0.7131</code></pre>
 </div>
 </div>
 </section>
-<section id="prediccion-sin-datos-atipicos" class="level2">
-<h2 class="anchored" data-anchor-id="prediccion-sin-datos-atipicos">Prediccion sin datos atipicos</h2>
-<div id="37959333" class="cell" data-execution_count="19">
+<section id="predicción-sin-datos-atípicos" class="level2">
+<h2 class="anchored" data-anchor-id="predicción-sin-datos-atípicos">Predicción sin datos atípicos</h2>
+<div id="1c6fa6e7" class="cell" data-execution_count="19">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb49"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb49-1"><a href="#cb49-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Separar las características (X) y la variable objetivo (y)</span></span>
@@ -1582,7 +1587,7 @@ R^2: 0.7131</code></pre>
 3  Árbol de Decisión  1.510896  2.110449  0.602463</code></pre>
 </div>
 </div>
-<div id="c8ebd600" class="cell" data-execution_count="20">
+<div id="b9883c3c" class="cell" data-execution_count="20">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb51"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb51-1"><a href="#cb51-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Variables utilizadas</span></span>
@@ -1604,7 +1609,7 @@ Index(['Hours_Studied', 'Attendance', 'Parental_Involvement',
       dtype='object')</code></pre>
 </div>
 </div>
-<div id="393e5c3b" class="cell" data-execution_count="21">
+<div id="3f35f05e" class="cell" data-execution_count="21">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb53"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb53-1"><a href="#cb53-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Separar las variables independientes y la variable objetivo</span></span>
@@ -1650,6 +1655,51 @@ RMSE: 1.2578
 R^2: 0.8588</code></pre>
 </div>
 </div>
+</section>
+<section id="comparación-de-métricas-de-modelos" class="level2">
+<h2 class="anchored" data-anchor-id="comparación-de-métricas-de-modelos">Comparación de métricas de modelos</h2>
+<section id="comparación-de-resultados" class="level3">
+<h3 class="anchored" data-anchor-id="comparación-de-resultados">Comparación de resultados:</h3>
+<ol type="1">
+<li><strong>Sin Datos Atípicos:</strong></li>
+</ol>
+<ul>
+<li>Los modelos mejoran su desempeño cuando los datos atípicos han sido ajustados.</li>
+</ul>
+<p>Stacking Regressor tiene el mejor rendimiento con:</p>
+<p>MAE: 0.8760 (error promedio bajo)</p>
+<p>RMSE: 1.2578 (mejor precisión comparado con los otros modelos)</p>
+<p>R²: 0.8588 (explica el 85.88% de la variabilidad en la variable objetivo)</p>
+<ul>
+<li><p>Random Forest y Regresión Ridge/Lineal presentan un desempeño similar en términos de MAE y RMSE, pero están ligeramente por debajo del Stacking Regressor.</p></li>
+<li><p>Regresión Lasso tiene un poco más de error en comparación con Ridge/Lineal.</p></li>
+<li><p>Árbol de Decisión muestra un rendimiento inferior con un MAE de 1.5109 y un R² de 0.6025, lo cual indica que no es tan eficaz en capturar la relación entre las variables.</p></li>
+</ul>
+<ol start="2" type="1">
+<li><strong>Con Datos Atípicos:</strong></li>
+</ol>
+<ul>
+<li>Los modelos se ven significativamente afectados por la presencia de outliers.</li>
+</ul>
+<p>Stacking Regressor sigue siendo el mejor modelo en este caso, pero sus métricas son peores:</p>
+<p>MAE: 0.9709</p>
+<p>RMSE: 1.9767</p>
+<p>R²: 0.7131 (una caída considerable comparada con el caso sin outliers, indicando que el modelo explica menos la variabilidad de la variable objetivo).</p>
+<ul>
+<li><p>Regresión Ridge/Lineal tienen un MAE de aproximadamente 1.008 y un RMSE de 2.016, indicando que los errores son mayores y su capacidad para predecir disminuye.</p></li>
+<li><p>Random Forest y Lasso también ven una degradación en su rendimiento.</p></li>
+<li><p>Árbol de Decisión se ve severamente afectado, con un R² cercano a 0, lo que sugiere que apenas explica la variabilidad de la variable objetivo.</p></li>
+</ul>
+</section>
+<section id="conclusiones" class="level3">
+<h3 class="anchored" data-anchor-id="conclusiones">Conclusiones:</h3>
+<ul>
+<li><p>Impacto de los Outliers: Los datos atípicos tienden a distorsionar las predicciones de los modelos, especialmente aquellos que no son robustos a valores extremos, como los árboles de decisión. Esto resulta en una mayor imprecisión (valores de MAE y RMSE más altos) y una menor capacidad de explicación (valores de R² más bajos).</p></li>
+<li><p>Importancia del Preprocesamiento: Ajustar los outliers ha mejorado el rendimiento de todos los modelos, especialmente del Stacking Regressor. Esto sugiere que los datos limpios permiten a los modelos captar mejor las relaciones entre las variables.</p></li>
+<li><p>Mejor Modelo: El Stacking Regressor es claramente superior en ambos casos, pero su desempeño mejora significativamente sin outliers. Este modelo combina la fortaleza de varios algoritmos, lo que le da una ventaja en precisión y estabilidad.</p></li>
+<li><p>Ridge y Regresión Lineal: Son bastante estables y, aunque no son tan buenos como el Stacking Regressor, funcionan bien al ajustar los outliers.</p></li>
+</ul>
+</section>
 </section>
 </section>
 
