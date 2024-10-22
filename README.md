@@ -77,4 +77,4 @@ El modelo **Stacking Regressor** se destacó como la mejor opción para esta tar
 
 - **Nombre:** Leandro Soto Miranda
 - **Correo Electrónico:** [lea](mailto:leasotompriv@gmail.com)
-- **LinkedIn:** [LinkedIn](https://www.linkedin.com/in/leandro-soto-767a72264/)
+- **LinkedIn:** [LinkedIn](https://www.linkedin.com/in/leandro-soto-miranda-767a72264/)
