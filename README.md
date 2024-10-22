@@ -1,4 +1,4 @@
-# Análisis de Predicción del Desempeño Académico Basado en Factores Estudiantiles
+# Análisis de predicción del desempeño académico basado en Factores Estudiantiles
 
 ## Descripción del Proyecto
 
@@ -67,3 +67,14 @@ Los resultados demostraron que el modelo **Stacking Regressor** fue el más prec
 El proyecto mostró que factores como el nivel de involucramiento parental, las actividades extracurriculares y el acceso a recursos educativos son elementos clave en el rendimiento académico de los estudiantes. Además, el preprocesamiento adecuado de los datos (como el tratamiento de valores atípicos) mejora considerablemente el rendimiento de los modelos predictivos.
 
 El modelo **Stacking Regressor** se destacó como la mejor opción para esta tarea, mostrando gran precisión en la predicción de los puntajes de examen.
+
+### Herramientas utilizadas
+- Vscode
+- Quarto
+- Kaggle
+
+## Contacto
+
+- **Nombre:** Leandro Soto Miranda
+- **Correo Electrónico:** [lea](mailto:leasotompriv@gmail.com)
+- **LinkedIn:** [LinkedIn](https://www.linkedin.com/in/leandro-soto-767a72264/)
