@@ -55,7 +55,7 @@ tipos = df.dtypes
 print("\nTipos de datos presentes en el dataset:\n",tipos)
 ```
 
-## 3. **Análisis de datos por Variable**
+## 3. Análisis de datos por Variable
 ## Análisis de datos cuantitativos
 
 ```{python}
